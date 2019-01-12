@@ -1,0 +1,209 @@
+搜狗输入法安装
+​	163 yuan
+​	deb http://mirrors.163.com/debian/ stretch main non-free contrib
+​	deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib
+​	deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib
+​	deb-src http://mirrors.163.com/debian/ stretch main non-free contrib
+​	deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib
+​	deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib
+​	deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
+​	deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib
+​	dpkg 安装包
+微信安装
+​	https://github.com/geeeeeeeeek/electronic-wechat/releases
+Tim安装
+​	https://github.com/askme765cs/Wine-QQ-TIM
+APT-GET
+​	以确保您的软件包列表是最新的：apt-get update
+​	安装一个新软件包：apt-get install packagename
+​	卸载一个已安装的软件包（保留配置文件）：apt-get remove packagename
+​	卸载一个已安装的软件包（删除配置文件）：apt-get –purge remove packagename
+​	列出所有软件 apt list
+dpkg
+​	-l 列出所有软件
+tar 解压bz2文件
+​	tar -xf *.bz2	一次只能解压一个
+7z解压
+​	安装 p7zip
+​	7zr x *.7z
+linux清理
+​	apt-get clean     删除所有存储在本地计算机的所有软件安装包
+​	apt-get autoclean	即可删除不再可用的软件安装包
+​	apt-get autoremove	删除不再需要的依赖包
+查看端口号
+​	lsof -i:8000		需要安装lsof
+​	netstat -nultp		需要安装net-toos
+mount卷
+​	mount [-hV]
+​	mount -a [-fFnrsvw][-t vfstype]
+​	mount [-fnrsvw][-o options [,...]] device | dir
+​	mount [-fnrsvw][-t vfstype] [-o options] device dir
+​	-o ro：用唯读模式挂上。
+​	-o rw：用可读写模式挂上。
+​	
+
+	将 /dev/hda1 用唯读模式挂在 /mnt 之下。
+	#mount -o ro /dev/hda1 /mnt
+umount 卸载卷
+​	umount /dev/sda*直接卸载
+fdisk
+​	-l 列出所有磁盘
+列出当前网卡
+​	cat /proc/net/dev
+安装wifi驱动
+​	source :deb http://httpredir.debian.org/debian/ stretch main contrib non-free  
+​						https://wiki.debian.org/iwlwifi/
+​	apt install firmware-iwlwifi
+​	modprobe -r iwlwifi
+​	modprobe iwlwifi
+Linux 出现grub Rescue(Linux救援模式)
+​	救援模式可以用的命令：set ls insmod root prefix
+​	大部分linux引导启动文件在 /boot/grub/normal.mod
+​	debian 引导文件在 /boot/grub/i386-pc/normal.mod
+​	设置 引导盘
+​	用ls 查看所有盘符
+​	在用 ls (hdx,x)/  列出盘下的所有文件，找到linux所在盘		
+​		set root=(hdx,x)	设置启动盘
+​		set prefix=(hdx,x)/boot/grub/ 设置grub启动路径
+​	set 查看当前设置情况
+​	debian 的话
+​		insmod /boot/grub/normal.mod
+​	普通 linux 
+​		insmod /boot/grub/i386-pc/normal.mod
+​	进入正常grub模式
+​		normal
+​	https://www.centos.bz/2017/07/debian-grub-repair/   引导修复方式2
+Linux 安装虚拟机	virtualbox-5.1_5.1.38-122592_Debian_stretch_amd64.DEB  尝试可用
+
+历史下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds
+
+https://download.virtualbox.org/virtualbox/5.1.38/virtualbox-5.1_5.1.38-122592~Debian~stretch_amd64.deb
+
+​	添加源
+​		deb http://download.virtualbox.org/virtualbox/debian stretch contrib
+​		deb http://http.kali.org/kali kali-rolling main non-free contrib
+​		deb-src http://http.kali.org/kali kali-rolling main non-free contrib
+​		deb http://security.debian.org/debian-security stretch/updates main 
+​	从官网下载虚拟机VBOX或者源中添加
+​	安装后先查看当前系统内核版本，安装headers和commons	uname -a查看当前内核版本
+​	
+
+	https://packages.debian.org/hu/stretch/kernel/	Debian Header头文件网站，在网页上Ctrl+F搜索响应内核版本，下载Headers和common
+	先安装common,在安装headers头
+	安装完成后执行/sbin/vboxconfig
+	安装 gcc  make		直接apt-get install gcc make
+Sublime 不能输入中文问题
+​	https://github.com/lyfeyaj/sublime-text-imfix.git 下载
+​	解压后src/subl 复制到usr/bin下，修改sublime安装路径
+​	复制解压后lib下的libsublime-imfix.so到安装目录
+​	复制src下的sublime-imfix.c 到安装目录
+​	命令行可以直接运行subl
+​	
+
+Linux 重启网卡
+​	 /etc/init.d/networking restart
+LInux 设置虚拟机网卡
+​	auto 网卡名称
+​	iface 网卡名称 inet static
+​	address 网卡地址
+​	netmask 255.255.255.0 子网掩码
+​	gateway 默认IP网段
+Linux 修改网卡
+​	临时修改：
+​		fconfig 网卡名称 down  #关闭网卡
+​		ifconfig 网卡名称 hw ether XX XX XX XX XX XX   #MAC地址
+​		ifconfig 网卡名称 up   #打开网卡
+
+查看所有用户和用户组
+​	/etc/passwd
+​	/etc/shadow系统存在的所有用户名
+elasticsearch安装
+​	下载linux 版 elasticsearch
+​		创建用户		useradd 用户名
+​		给用户赋予权限目录的执行权限	 chown -R 用户名 目录
+
+		./elasticsearch
+	
+	主要是因为elasticsearch不能直接使用root账户访问  推荐:
+	
+		进入/bin目录，执行./elasticsearch -Des.insecure.allow.root=true
+
+elasticsearch安装head分词器
+
+	进入bin下
+	
+	./plugin install mobz/elasticsearch-head
+
+
+
+VLC安装后不能运行
+​	修改/usr/bin/vlc    因为是二进制文件，用vi修改 geteuid 修改成 getppid
+ps -ef 查看所有进程
+kill -9 PID	结束进程
+查看当期那IP地址/网卡
+​	ip addr show
+得到本机设备型号
+​	lspci
+​	
+rar 安装
+​	解压目录进入rarLinux
+​	执行make
+​	执行make install
+
+rar解压
+
+​	rar x *.zip
+
+zip
+
+​	zip -r 压缩名称.zip 压缩目录
+
+unzip
+​	unzip 文件.zip
+查看当前所有硬件设备
+​	 ls /dev/sd*
+修复引导：
+​	grub-update2
+​	grub-install /dev/sda
+笔记
+​	elasticsearch启动报错
+​		maybe these locations are not writable or multiple nodes were started without increasing [node.max_local_storage_nodes] (was [1])?
+​		confg下的xx.conf添加 node.max_local_storage_nodes: 256  #replace 256 with another num that greater than 1
+2018-8-18
+​	linux logind 位置:/etc/systemd/logind.conf	有bak文件，替换过
+/boot/grub/grub.cfg
+
+	### Windows 7 Start Loader
+	menuentry 'Windows 7'{
+	insmod chain
+	insmod ntfs
+	set root='hd1,1'
+	##chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+	chainloader +1
+	boot
+	}
+	### END Windows 7 Start Loader
+Chrome打开没反应解决
+​	找到/opt/google/chrome/google-chrome ，最后一行 修改成 exec -a "$0" "$HERE/chrome" "$@" --no-sandbox
+​		[31560:31560:0207/085601.085852:ERROR:zygote_host_impl_linux.cc(90)] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.报这个错的情况下
+睡眠唤醒操作	laptop-mode-tools不安装估计也能正常睡眠(安装debian 时只安装xfce4)
+关机慢解决
+​	a JOb is Running Session
+​	编辑/etc/systemd/system.conf
+​	DefaultTimeoutStartSec=10s
+​	DefaultTimeoutStopSec=10s
+​	执行命令：systemctl daemon-reload
+菜单模板：
+​	[Desktop Entry]
+​	Name=软件名称
+​	Comment=软件介绍
+​	Exec=执行命令 (%F隐藏启动命令)
+​	Icon=程序图标
+​	Terminal=false
+​	Type=Application	类型
+​	MimeType=application/vnd.mysql-workbench-model;	菜单中分类
+​	Categories=GTK;Database;Development;		同上...
+
+菜单中开发分类：
+​	MimeType=application/vnd.mysql-workbench-model;
+​	Categories=GTK;Database;Development;
