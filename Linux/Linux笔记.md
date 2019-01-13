@@ -311,6 +311,30 @@ ibus-daemon -r -d -x
 
 
 
+## 搭建GTK+环境
+
+直接安装:libgtk-3-dev包
+
+编译时使用：
+
+```
+gcc C源文件.c -o [执行文件名称] `pkg-config --cflags --libs gtk+-3.0`
+```
+
+
+
+## SmartGit不能切换输入法
+
+在{SmartGit安装目录}/bin/smartgit.sh
+
+```
+export GTK_IM_MODULE=ibus
+改为：
+export GTK_IM_MODULE=fcitx
+```
+
+## 
+
 ## Qt Create 安装后切换输入法问题：
 
 ```
