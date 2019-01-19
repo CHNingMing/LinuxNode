@@ -93,6 +93,23 @@ shade：窗口隐藏按钮
 
 ```
 
+### XFCE icon 图标部分：
+
+ icon  电池使用通知栏自带显示电池+可以细微控制屏幕亮度
+
+### XFCE登录器(Lightdm)
+
+#### 登录器背景:
+
+```
+打开:/usr/share/lightdm/lightdm-gtk-greeter.conf.d/01_debian.conf
+找到background=背景图片路径
+```
+
+
+
+
+
 ## xfce4命令部分
 
 ### xflock4		xfce锁屏命令
@@ -239,7 +256,7 @@ https://ftp.mozilla.org/pub/firefox/releases/版本号/xpi/ch_Zh.xpi
 
 #### XTerm中文问题解决
 
-打开/etc/X11/app-defaults/XTerm		文件，添加
+打开/etc/X11/app-defaults/XTerm		文件，**追加**
 
 ```
 *VT100.utf8Fonts.font:  -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1 
@@ -253,6 +270,14 @@ https://ftp.mozilla.org/pub/firefox/releases/版本号/xpi/ch_Zh.xpi
 #### 网络监视插件
 
 xfce4-netload-plugin
+
+### XFCE快捷键:
+
+Alt+双击		:		放大/缩小屏幕
+
+
+
+​	
 
 ### XFCE问题解决：
 
