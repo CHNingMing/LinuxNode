@@ -37,6 +37,93 @@ spring-boot-starter-jetty 使用 Jetty 而不是默认的 Tomcat 作为应用服
 
 ### 步骤：
 
+### 依赖
+
+#### 起步依赖
+
+spring-boot-starter-parent	
+
+#### 添加Web用到的Jar包
+
+sring-boot-starter-web
+
+#### 修改Java版本号
+
+```xml
+<properties>
+	<java.version>1.7</java.version>
+</properties>
+```
+
+
+
+### application.properties配置文件
+
+创建application.properties
+
+#### 修改端口号
+
+**server.port=8088**
+
+@SpringBootApplication		开始注解SpringBoot注解总和
+
+```
+@Configuration  定义配置类
+@EnableAutoConfiguration	自动装配，根据Jar来自动配置项目
+@ComponentScan	包扫描
+```
+
+读application.properties属性
+
+自动注入Environment
+
+调用方法environment.getPropertyes("key")通过配置文件key获取value
+
+
+
+热部署
+
+### 热部署
+
+#### 添加依赖
+
+```
+spring-boot-devtools
+```
+
+### 整合activeMQ
+
+```
+添加依赖
+
+	spring-boot-starter-activemq
+
+生产者
+
+	注入JmsMessagingTemplate,activemq模板
+
+	convertAndSend("队列名称",文本内容);方法发送
+
+消费者
+
+	@JmsListener(destination="接收队列消息")
+
+	方法(String text) 会自动注入到text中
+```
+
+#### 使用外部activemq
+
+```
+spring.activemq.broker-url=tcp://IP:端口
+```
+
+### MD5加密
+
+```
+org.Apache.commons包下
+DigestUtils.md5Hex(加密字符);加密
+```
+
 
 
 

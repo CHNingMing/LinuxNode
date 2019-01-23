@@ -72,7 +72,7 @@ pmset -a hibernatemode 25  将睡眠图像仅保存到  磁盘并从RAM中移除
 
 触摸板插件：ApplePS2SmartTouchPad.kext
 
-显卡驱动：HibernationFixup.kext+IntelGraphicsFixup.kext
+显卡驱动：HibernationFixup.kext + IntelGraphicsFixup.kext
 
 USB驱动：USBInjectAll.kext。暂时没用上
 

@@ -92,12 +92,7 @@ https://download.virtualbox.org/virtualbox/5.1.38/virtualbox-5.1_5.1.38-122592~D
 	先安装common,在安装headers头
 	安装完成后执行/sbin/vboxconfig
 	安装 gcc  make		直接apt-get install gcc make
-Sublime 不能输入中文问题
-​	https://github.com/lyfeyaj/sublime-text-imfix.git 下载
-​	解压后src/subl 复制到usr/bin下，修改sublime安装路径
-​	复制解压后lib下的libsublime-imfix.so到安装目录
-​	复制src下的sublime-imfix.c 到安装目录
-​	命令行可以直接运行subl
+
 ​	
 
 Linux 重启网卡
