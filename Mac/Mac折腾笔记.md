@@ -2,6 +2,8 @@
 
 # 快捷键
 
+Ctrl键Command交换在设置->键盘中，个别程序还是需要Command
+
 command + M : 最小化应用
 
 **Command-H**：隐藏最前面的应用的窗口
