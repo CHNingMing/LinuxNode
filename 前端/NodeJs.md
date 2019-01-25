@@ -89,3 +89,70 @@ eventEmitter.listenerCount();
 
 ## 流对象Buffer
 
+
+
+
+
+
+
+
+
+## 模块
+
+创建一个模块：
+
+Hello.js
+
+```javascript
+exports.fun = ()=>{
+
+	//....
+
+}
+var fun1 = function(){
+    //....
+}
+exports.fun1 = fun1;
+```
+
+引用模块和调用模块方法：
+
+```javascript
+var hello = require('./Hello.js');//模块中写引入js的目录
+hello.fun();//hello对象引用上方接口的exports对象
+hello.fun1();
+```
+
+### Exports
+
+外部调用对象，公开的接口
+
+设置对外函数/对象等直接给exports赋值就可以：
+
+```javascript
+exports.fun = function(){
+    //....
+}
+exports.name = '张三';
+exports.age = 10;
+```
+
+### Model
+
+有时候想把对象封装到模块中：
+
+Hello.js
+
+```javascript
+function Hello(){
+    var name;
+    this.setName (nameVal) =>{
+        name = nameVal;
+    }
+    this.getName () => {
+        return name;
+    }
+}
+module.exports = Hello;
+```
+
