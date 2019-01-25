@@ -1,5 +1,3 @@
-
-
 # 快捷键
 
 Ctrl键Command交换在设置->键盘中，个别程序还是需要Command
@@ -22,9 +20,13 @@ Control-Command-F：全屏使用应用（如果应用支持）。
 - **Control–A**：移至行或段落的开头。
 - **Control–E**：移至行或段落的末尾。
 
+Option(Alt)+Command(Ctrl)+V : 剪切，复制后使用此快捷键实现粘贴效果
 
 
 
+# 命令
+
+打开
 
 
 
@@ -90,3 +92,8 @@ Kext Utillty		实时加载kext
 
 Dr.Cleaner Pro(清理垃圾) + CleanMyMac X(优化系统)
 
+## 开发
+
+iTerm		连接远程SSH
+
+Cyberduck	管理远程文件
