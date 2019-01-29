@@ -87,9 +87,68 @@ listenerCount([event]);
 eventEmitter.listenerCount();
 ```
 
-## 流对象Buffer
 
 
+## 缓冲区Buffer
+
+### 创建Buffer对象
+
+**Buffer** Buffer.**from**(string[,encoding]);			制定字符串初始化缓冲区
+
+**Buffer** Buffer.**from**(buffer);						制定流初始化缓冲区
+
+**Buffer** Buffer.**from**(array);						制定数组创建缓冲区,必须保证数组是数字
+
+**Buffer** Buffer.**alloc**(size[,fill[,encoding]]);		创建一个指定大小的缓冲区
+
+创建一个长度为256的流:
+
+```javasc
+var buf = BUffer.alooc(256);
+```
+
+### 写入缓冲区
+
+int write(string[,offset[,length]\[,encoding]]);
+
+写入:hello buffer
+
+```javascript
+buf.write("Hello Buffer");
+buf.write("Hello Buffer",5)
+buf.write("Hello Buffer",5,5)
+buf.write("Hello Buffer",5,5,'utf8')
+```
+
+### 读缓冲区数据
+
+string toString([encoding[,start[,end]]])
+
+```javascript
+buf.toString(buf);
+buf.toString(buf,5,5);
+```
+
+## 流对象Stream
+
+相关方法:
+
+	 finish
+	
+		写入完成后方法
+
+引入fs模块
+
+```javascript
+var fs = require('fs');
+var writeStream() = fs.createWriteStream('文件名称');
+```
+
+### 写入数据
+
+```javascript
+writeStream.write(string[,encoding]);
+```
 
 
 
