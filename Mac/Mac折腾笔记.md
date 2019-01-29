@@ -10,8 +10,6 @@ Option-Command-Esc：[强制退出](https://support.apple.com/zh-cn/HT201276)应
 
 Control-Command-F：全屏使用应用（如果应用支持）。
 
-
-
 - **Command-E**：推出所选磁盘或宗卷。
 - **Command-I**：显示所选文件的“显示简介”窗口。
 
@@ -21,6 +19,18 @@ Control-Command-F：全屏使用应用（如果应用支持）。
 - **Control–E**：移至行或段落的末尾。
 
 Option(Alt)+Command(Ctrl)+V : 剪切，复制后使用此快捷键实现粘贴效果
+
+## Finder
+
+Command+Shift+G:打开文件夹指定目录
+
+
+
+## Chrome
+
+Command(Ctrl)+Option(Alt)+I				开发者工具
+
+
 
 
 
@@ -92,8 +102,45 @@ Kext Utillty		实时加载kext
 
 Dr.Cleaner Pro(清理垃圾) + CleanMyMac X(优化系统)
 
-## 开发
+MacBooster 7	（以后准备只是用Ta）
+
+# 开发
+
+## 软件
 
 iTerm		连接远程SSH
 
 Cyberduck	管理远程文件
+
+### 搭建PHP环境
+
+mac 自带php环境，但是默认不生效，配置一下：
+
+/etc/apache2/httpd.conf		文件，搜索libphp
+
+LoadModule php7_module libexec/apache2/libphp7.so		解开注释
+
+### 默认工作目录在
+
+**/Library/WebServer/Documents**下
+
+### Apachectl 常用命令
+
+/ 启动Apache服务
+
+sudo apachectl start
+
+// 重启Apache服务
+
+sudo apachectl restart
+
+// 停止Apache服务
+
+sudo apachectl stop
+
+// 查看Apache版本
+
+httpd -v
+
+### 
+

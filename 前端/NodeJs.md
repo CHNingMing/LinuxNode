@@ -26,14 +26,15 @@ obj require('模块名称')
 ### 常用阻塞写法套路
 
 ```javascript
-var data =  readFileSync('文件全路径');
+var fs = require('fs');
+var data =  fs.readFileSync('文件全路径');
 console.log(data.toString());
 ```
 
 ### 非阻塞写法套路
 
 ```
-var data =  readFileSync('文件全路径',function(err,data){
+var data =  fs.readFileSync('文件全路径',function(err,data){
     console.log(data.toString());
 });
 ```
@@ -156,3 +157,143 @@ function Hello(){
 module.exports = Hello;
 ```
 
+# HTTP模块
+
+## createServer创建一个服务
+
+```javascript
+var http = require('http');
+var url = require('url');
+http.createServer((request,response)=>{
+    request.url		//获取访问全url
+    url.parse(request.url).pathname;
+}).listen(8888);
+```
+
+# URL模块
+
+## 取参数
+
+### 获取参数对象
+
+参数对象 parse(url).query
+
+### 取参数对应值：
+
+参数对象.请求参数name
+
+栗子：
+
+请求路径：localhost:端口?para1=value1&param2=value2
+
+```javascript
+var url = require('url');
+var http = require('http');
+http.createServer(function(req,resp){
+    var param = url.parse(req.url,true).query;
+    console.log(param.para1);
+    console.log(param.param2);
+}).listen([端口号]);
+```
+
+## 取访问路径：
+
+string parse(url).pathname 
+
+# 函数
+
+## 几种函数类型
+
+首先声明一个类
+
+```javascript
+funciton ClassOBJ = (){
+    // 此处为构造方法执行代码
+    this.nameA = "";		//类实例属性
+    this.fun1 = () => {		//实例方法
+        //...
+    }
+}
+//prototype关键字修饰创建的是实例类
+ClassOBJ.prototype.funA = () => {
+    //外部添加实例方法
+}
+ClassOBJ.funStatic = () => {
+    //添加静态方法
+}
+```
+
+
+
+### 类自带属性
+
+Name: 默认为类名
+
+
+
+# Util
+
+## 类继承
+
+util.inherits(子类,父类);
+
+子类继承父类通过**prototype**对象设置的**函数/属性**
+
+列：
+
+```javascript
+function Base(){
+    this.method_2 = (){
+        console.log('基础类私有方法');
+    }
+    this.name = "基础类私有属性";
+}
+function Base_A(){
+    
+}
+Base.prototype.method1 = (){
+    console.log('会被继承的方法');
+}
+Base.prototype.age = 18;//会被继承的属性
+```
+
+## 对象转字符串
+
+util.inspect(object[,showHidden]\[,depth][,colors]);
+
+object：目标对象
+
+showHidden:显示对象隐藏信息.  bool
+
+Depth:递归输出对象信息层数.  int
+
+colors：醒目样式显示信息  bool
+
+## 判断是否为数组
+
+isArray(object)
+
+## 正则对象校验
+
+util.isRegExp(object)
+
+object:如果对象是正则表达式返回true,否则false
+
+# FS文件操作
+
+## 取文件属性：
+
+```javascript
+var fs = require('fs');
+fs.stat('文件路径',function(err,state){});
+/*
+	err:错误信息
+	state: 文件属性
+*/
+```
+
+### state
+
+isFile()		是否是文件
+
+isDirectory()	是否是目录
