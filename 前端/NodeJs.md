@@ -151,11 +151,9 @@ var writeStream() = fs.createWriteStream('文件名称');
 writeStream.write(string[,encoding]);
 ```
 
+## 全局变量
 
-
-
-
-
+__dirname		当前运行目录
 
 ## 模块
 
@@ -235,7 +233,7 @@ http.createServer((request,response)=>{
 
 ### 获取参数对象
 
-参数对象 parse(url).query
+参数对象 parse(req.url,true).query
 
 ### 取参数对应值：
 
@@ -356,3 +354,56 @@ fs.stat('文件路径',function(err,state){});
 isFile()		是否是文件
 
 isDirectory()	是否是目录
+
+# Express
+
+首先安装 Express:
+
+```
+cd 执行JS文件目录
+npm install express --save
+npm install body-parser --save
+npm install cookie-parser --save
+npm install multer --save
+
+```
+
+### Express
+
+**get**(<请求URL,可以正则>,<Funcation(request,response)>)
+
+**post**(<请求URL,可以正则>,<Funcation(request,response)>)
+
+
+
+```javascript
+var express = require('express');
+var app = express();
+//表示访问根目录时输出hello world!
+app.get('/',function(req,resp){
+    resp.sned('hello world!');
+});
+//
+app.post('/user_*',(req,resp)=>{
+    //...
+});
+
+//开启服务
+var server = app.listen(8010,function(){
+   //开启后执行代码
+});
+
+```
+
+### 设置静态资源位置：
+
+app.use( express.static( <静态资源路径> ) );
+
+
+
+
+
+
+
+
+

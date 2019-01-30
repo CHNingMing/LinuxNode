@@ -22,9 +22,9 @@ Option(Alt)+Command(Ctrl)+V : 剪切，复制后使用此快捷键实现粘贴�
 
 ## Finder
 
-Command+Shift+G:打开文件夹指定目录
+Command+Shift+G			打开文件夹指定目录
 
-
+Command(Ctrl)+Shift+.		显示隐藏文件
 
 ## Chrome
 
@@ -114,11 +114,49 @@ Cyberduck	管理远程文件
 
 ### 搭建PHP环境
 
+#### MAX自带PHP环境：
+
 mac 自带php环境，但是默认不生效，配置一下：
 
 /etc/apache2/httpd.conf		文件，搜索libphp
 
 LoadModule php7_module libexec/apache2/libphp7.so		解开注释
+
+#### XMAPP工具PHP环境：
+
+下载链接：https://www.apachefriends.org/download.html
+
+目测：5.6.40 / PHP 5.6.40	可以正常安装
+
+安装后隐藏文件夹
+
+​	~/.bitnami
+
+##### http.conf
+
+```
+/Applications/XAMPP/xamppfiles/etc/http.conf
+```
+
+##### php.ini
+
+```
+/Applications/XAMPP/xamppfiles/etc/php.ini
+```
+
+/Application/XAMPP/
+
+
+
+### PHP.ini
+
+Mac 下没有PHP.ini,但是有PHP.ini的模板文件，位置：
+
+```
+/private/etc/php.ini.default
+```
+
+
 
 ### 默认工作目录在
 
