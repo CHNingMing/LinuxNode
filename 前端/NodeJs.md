@@ -399,9 +399,9 @@ var server = app.listen(8010,function(){
 
 app.use( express.static( <静态资源路径> ) );
 
+# body-parser
 
-
-
+解析各种请求类型：纯文本，二进制，json
 
 
 
