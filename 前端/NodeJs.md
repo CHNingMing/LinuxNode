@@ -403,6 +403,64 @@ app.use( express.static( <静态资源路径> ) );
 
 解析各种请求类型：纯文本，二进制，json
 
+目测只能解析post请求....
+
+## 解析JSON
+
+```javascript
+var express = require('express');
+var bodyParse = require('body-parse');
+var app = express();
+
+var jsonParser = bodyParse.json();
+
+app.listen(8010,()=>{
+    console.log('启动成功！');
+});
+
+```
+
+
+
+# MySql
+
+npm安装mysql：
+
+```
+cd js目录
+npm install mysql
+```
+
+连接mysql:
+
+```javascript
+var mysql  = require('mysql');
+var connection = mysql.createConnect({
+    host:'',
+    user:'',
+    password:'',
+    port:'',
+    database:''
+});
+connection.connect();
+
+
+//....
+
+
+connection.end();
+```
+
+普通查询：
+
+
+
+
+
+
+
+
+
 
 
 
