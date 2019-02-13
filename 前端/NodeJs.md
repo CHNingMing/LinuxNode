@@ -451,7 +451,26 @@ connection.connect();
 connection.end();
 ```
 
-普通查询：
+## 普通查询：
+
+connection.query(sql[,params],fun(err,result));
+
+Sql:执行SQL语句
+
+Param:执行语句参数 （?占位符）
+
+fun(err:执行过程出错，result:执行结果)
+
+```
+connection.connect();
+
+connection.query("select * from dual where id = ?;",[1],(err,result)=>{
+    if( err ) return;
+    console.log(result);
+});
+
+connection.end();
+```
 
 
 

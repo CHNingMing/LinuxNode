@@ -20,6 +20,8 @@ Control-Command-F：全屏使用应用（如果应用支持）。
 
 Option(Alt)+Command(Ctrl)+V : 剪切，复制后使用此快捷键实现粘贴效果
 
+F11 类似window  Ctrl+D  快速显示桌面
+
 ## Finder
 
 Command+Shift+G			打开文件夹指定目录
@@ -185,4 +187,16 @@ httpd -v
 ​	插上耳机人声音模糊不清时，打开：
 
 ​	声音 - 输出选项卡 - 平衡左右调下试试
+
+
+
+
+
+# 入门
+
+切换root用户：
+
+```
+sudo -i
+```
 
