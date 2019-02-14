@@ -40,21 +40,35 @@ npm list -g			//列出全局模块
 
 类似Maven的POM.xml，管理各个包的信息
 
-可以通过npm init 创建一个package.json
+可以通过**npm init** 创建一个package.json
 
 期间会回答一系列问题：
 
 ```
 //问题
-
-
+名称
+版本
+项目简介
+作者
+...
+最后yes
 ```
 
 不想回答问题时直接 npm init --yes,直接生成package.jsons
 
 PS:安装模块时(除全局安装-g)只有当前目录有package.json才会在指定目录创建node_modules
 
+如果项目已有package.json，使用：
 
+```
+npm install --save-dev
+```
+
+#### 两种依赖：
+
+​	dependencies	：运行依赖
+
+​	devDependencies	：	开发依赖
 
 # WebPack
 
@@ -91,6 +105,34 @@ module.exports = {
 };
 
 ```
+
+#### entry可接受三个参数：
+
+对象形式：
+
+​	entry{ "key":"*.js" }
+
+​	后期再 个别地方可以使用这个key:
+
+​		列入：filename:'[name]_file.js'
+
+​	最后[name]解析成key:key_file.js
+
+数组形式：
+
+​	打包多个入口文件
+
+```json
+entry{
+    vendor:['main.js','main_1.js'...]
+}
+```
+
+
+
+
+
+
 
 ### Webpack参数
 
