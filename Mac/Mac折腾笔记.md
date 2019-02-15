@@ -38,7 +38,13 @@ Command(Ctrl)+Option(Alt)+I				开发者工具
 
 # 命令
 
-打开
+安装brew软件管理器：
+
+https://brew.sh/index_zh-cn.html
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 
 
@@ -116,7 +122,67 @@ Cyberduck	管理远程文件
 
 ### 搭建PHP环境
 
-#### MAX自带PHP环境：
+#### XAMPP:
+
+​	直接安装
+
+注意：
+
+​	修改项目根目录时，修改项目到Application下并且保证有原根目录下文件，其他目录有权限问题
+
+##### XAMPP设置ZendStudio调试：
+
+1. 配置项目目录
+
+   打开配置文件：
+
+   xampp应用下 etc(快捷方式)/httpd.conf
+
+   或者：xampp应用下/xamppfiles/etc/httpd.conf
+
+   ```xml
+   DocumentRoot "/Applications/PHPWork"
+   <Directory "/Applications/PHPWork">
+   ```
+
+   尽量目录在/Applications下，没有权限访问问题，因为/Applications是所有用户都能访问的路径
+
+2. 配置XDebug
+
+   同样在etc下找到php.ini,搜索xdebug，如果没有添加：
+
+   ```xml
+   
+   [xdebug]
+   zend_extension=/Applications/XAMPP/xamppfiles/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so
+   xdebug.remote_autostart=on
+   xdebug.remote_enable=on
+   xdebug.remote_enable=1
+   xdebug.remote_mode="req"
+   xdebug.remote_log="/Applications/XAMPP/xamppfiles/var/log/xdebug.log"
+   xdebug.remote_host=localhost/127.0.0.1
+   xdebug.remote_port=9000
+   xdebug.remote_handler="dbgp"
+   xdebug.idekey="ZendStudio"		--暂时ide没设置
+   ```
+
+   注意：zend_extension（插件目录）、remote_log（日志）、remote_host（调试主机网址）、remote_port（调试端口）
+
+   可以写个php，用phpinfo()列出php信息，搜索xdebug
+
+
+
+   ##### 配置解析器
+
+   打开：左上角：Zend Studio - > Preferences.. -> PHP -> PHP Executables -> 添加
+
+   php名称，php解析器路径：（定位到XAMPP路径下bin目录php）,debug选择xdebug,port 和刚才 (php.ini)remote_port对应
+
+   ##### 添加服务器
+
+   PHP 下 Servers - > new -> Local Apache Http Server -> { apache名称 、apache配置文件路径(XAMPP下etc)}
+
+#### MAC自带PHP环境：
 
 mac 自带php环境，但是默认不生效，配置一下：
 

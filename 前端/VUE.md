@@ -44,6 +44,16 @@ span.__vue__._data.message = "new Data!";
 //正常绑定message值
 ```
 
+### V-bind
+
+一般用在绑定标签属性上：
+
+```Html
+<div v-bind:class="vue data数据key" v-bind:style="vue data数据key" >
+    
+</div>
+```
+
 ### v-if
 
 控制元素可见
@@ -86,7 +96,7 @@ span.__vue__._data.message = "new Data!";
 
 
 
-## 绑定方法：
+## 绑定方法
 
 V-on:click="方法名"
 
@@ -107,4 +117,30 @@ new Vue({
     }
 });
 ```
+
+## 组件
+
+页面中每个元素都是一个组件
+
+一个页面可以看成一个树形结构组件图，从根(html)一层层向下延伸
+
+### 创建组件
+
+Vue.component(<组件名>,{
+
+​	props:['绑定值','绑定值']	
+
+​		
+
+});
+
+-- 暂时规定这样写法
+
+```javascript
+Vue.component
+```
+
+
+
+
 
