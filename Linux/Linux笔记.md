@@ -305,8 +305,29 @@ notify-send 通知标题 通知主体
 notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
 ```
 
+# lxde部分：
 
+### lxde设置快捷键：
 
+​	打开位置：
+​		~/.config/openbox/lxde-rc.xml
+
+```xml
+<keybind key="W-C-Up">
+  <action name="Execute">
+    <command>/opt/sendOption.sh +</command>
+  </action>
+</keybind>
+
+包含在 keyboard 节点中
+
+W=Windows键盘
+C=Ctrl
+A=Alt
+Up 箭头上
+Down 箭头下
+注意：  快捷键连接符不是下划线，是 - 不是 _ 
+```
 ## 新磁盘结构
 
 ```
