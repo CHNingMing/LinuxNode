@@ -105,7 +105,17 @@ shade：窗口隐藏按钮
 打开:/usr/share/lightdm/lightdm-gtk-greeter.conf.d/01_debian.conf
 找到background=背景图片路径
 ```
+### Sublime 输入法问题
+	https://github.com/lyfeyaj/sublime-text-imfix.git 下载
+解压，把lib下libsublime-imfix.so复制到sublime 目录
+在进入src下编辑subl,编辑libsublime-imfix.so路径和sublime路径，运行这个subl启动sublime解决输入法问题。
 
+### 安装声卡
+安装alsa-utils
+手动执行：
+	alsactl init
+	alsamixer 控制音量
+	
 
 
 
