@@ -768,7 +768,7 @@ output path和Test output path都选择到刚才创建的classes路径
 	
 	Lantern
 	
-	RepidSVN/ 更好软件PySvn
+	RepidSVN/ 更好软件svn-workkbench
 	
 		Meld	文件比较
 	
