@@ -113,9 +113,9 @@ shade：窗口隐藏按钮
 ### 安装声卡
 安装alsa-utils
 手动执行：
-	alsactl init
-	alsamixer 控制音量
-	
+​	alsactl init
+​	alsamixer 控制音量
+​	
 
 
 
@@ -358,6 +358,30 @@ RedisDesktopManager安装：
 https://github.com/shadowsocks/shadowsocks-qt5/releases  Shadowsocks-Qt5下载地址只支持ss链接
 
 SwitchyOmega安装完成后创建情景模式,配置代理服务器,完成后选择**应用选项**,切换情景模式为刚才配置的情景模式
+
+## PHP idea 开发环境搭建：
+
+#### 安装三个插件:
+
+Behat Support
+
+PHP
+
+PHP Remote Interpreter
+
+#### 配置:
+
+Languages & Frameworks -> PHP -> CLI Interpreter 选择 PHP运行文件
+
+Debug 配置好 调试端口
+
+创建服务：
+
+Servers - > + -> Host /port 
+
+创建一个PHP Web Page,URL写可以访问到指定php文件路径
+
+
 
 
 
@@ -772,7 +796,7 @@ output path和Test output path都选择到刚才创建的classes路径
 	
 		Meld	文件比较
 	
-	MySql WorkBench
+	MySql WorkBench	被替代 DbVisualizer 9.8版本可以破解专业版
 	
 	Postman
 	
@@ -787,6 +811,20 @@ output path和Test output path都选择到刚才创建的classes路径
 其他:
 
 	KolourPaint		有中文不能输入问题		-
+
+## DbVisualizer9.8
+
+9.8版本可以正常破解专业版
+
+#### 设置智能提示:
+
+Tools -> Tools Properties -> Sql Commander -> Auto Completion
+
+#### 设置智能提示快捷键:
+
+实际是按下快捷键实现菜单中某个功能
+
+Tools -> Tools Properties -> Key Bindings -> (最好创建一个副本)Make Copy -> 依次打开 Main Menu /Edit/**Show Auto Completion**   只设置First Keystroke就可以
 
 ## 磁盘结构：
 
@@ -968,6 +1006,18 @@ dpkg - i安装，新立得解决依赖问题
 ```
 fcitx -r
 ```
+
+### codeblocks切换输入法：
+
+profile添加：
+
+```
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
+
+
 
 # Wine
 

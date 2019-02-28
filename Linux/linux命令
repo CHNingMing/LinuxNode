@@ -19,6 +19,11 @@ APT-GET
 ​	卸载一个已安装的软件包（保留配置文件）：apt-get remove packagename
 ​	卸载一个已安装的软件包（删除配置文件）：apt-get –purge remove packagename
 ​	列出所有软件 apt list
+
+​	apt-get 修复软件依赖		apt-get -f install
+
+​	apt-get 搜索				apt-cache search 软件名称
+
 dpkg
 ​	-l 列出所有软件
 tar 解压bz2文件

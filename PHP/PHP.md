@@ -40,7 +40,36 @@ echo "字符串中访问$arr[0]"
 //不要单独输出arr,会报不能将Array转成string
 ```
 
+### var_dump($obj)
+
+输出对象详细信息
 
 
 
+# mysqli
+
+## 普通查询
+
+mysqli_query(conn(连接对象),query(sql),resultmode(可选,模式));
+
+resultmode:
+
+- MYSQLI_USE_RESULT（如果需要检索大量数据，请使用这个）
+- MYSQLI_STORE_RESULT（默认）
+
+## mysqli_result对象
+
+针对成功的 SELECT、SHOW、DESCRIBE 或 EXPLAIN 查询，将返回一个 mysqli_result 对象。针对其他成功的查询，将返回 TRUE。如果失败，则返回 FALSE。				-- 菜鸟教程
+
+### fetch_all取出结果集所有对象
+
+```
+$result->fetch_all()
+```
+
+### fetch_assoc取出一行结果
+
+```
+$result->fetch_assoc()
+```
 

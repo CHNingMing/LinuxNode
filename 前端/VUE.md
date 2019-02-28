@@ -81,6 +81,20 @@ span.__vue__._data.message = "new Data!";
 </script>
 ```
 
+集合只有一下方法能出发刷新视图:
+
+```
+push()		添加
+pop()		删除并返回最后一个元素
+shift()		删除并返回第一个元素
+unshift()	数组开头添加一个或多个元素，并返回新长度
+splice()	删除元素，并向数组添加新元素
+sort()		对数组排序
+reverse()	点到数组顺序
+```
+
+
+
 两个元素数据绑定：
 
 ### v-model

@@ -15,7 +15,7 @@
 添加：
 
 ```
-`pkg-config --libs --cflags gtk+-3.0`
+`pkg-config --libs --cflags gtk+-3.0` / `pkg-config --cflags --libs gtk+-3.0` (最近试成功)
 ```
 
 ​					

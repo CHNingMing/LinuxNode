@@ -20,6 +20,25 @@ NUTZ自定义实体，类似Map
 @ColDefine(type=ColType.数据类型[,width=数据长度])
 ```
 
+## Chain
+
+类似pojo,主要用在插入和更新上
+
+Chain代替poji:
+
+Chain Chain.make(pojoAttr,value);
+
+```java
+Chain pojo = Chain.make("name","zhangsan");
+pojo.add("age",18);
+dao.update("perso",pojo,Cnd.where("pid","=",1));
+dao.add("perso",pojo);
+```
+
+
+
+
+
 ## Dao 
 
 ```
