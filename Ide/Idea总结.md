@@ -22,11 +22,19 @@
 
 
 
+## IDEA Output Layout设置:
 
+添加在　**Facets**　设置Web资源目录,上框定位web.xml,下框定位部署到tomcat下项目根目录文件(webInfo/webroot)
 
+回到Output Layout设置
 
+Output root		是部署项目后输出文件
 
+#### Available Elements
 
+下是　java编译文件放置位置(一般都是classes下)　和个别lib包
+
+部署好后，在每次运行时会把一下资源文件部署到资源文件中
 
 ## 插件
 

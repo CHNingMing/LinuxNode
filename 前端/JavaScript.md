@@ -32,6 +32,39 @@ window.getComputedStyle(Ele).样式名称
 
 
 
+### 动态创建DOM
+
+```javascript
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'xxx.js';
+
+document.head.append(script);
+
+```
+
+### 动态删除DOM
+
+```javascript
+var script = document.createElement('script');
+//设置script属性
+//head中添加了script
+document.head.removeNode(script);
+
+```
+
+### 代码设置断点:
+
+```javascript
+//。。
+debugger;
+//..
+```
+
+
+
+
+
 # JQuery
 
 ### 万恶之源:

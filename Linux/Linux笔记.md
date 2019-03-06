@@ -213,14 +213,11 @@ xfce4-whiskermenu-plugin 是一款新的应用程序菜单，打开和LinuxMint�
 PDF阅读器：Zathura
 以前用的是evince-gtk，后来发现选择文本时中文乱七八糟的，而且有的打开之后缺页什么的，换了Mupdf用了一段时间，不过还是有些文档打开缺页，然后用新立得搜索PDF挖到Zathura，感觉超级爽，相当于Muodf的超级版～～
 
-
 下拉终端：Tilda
 不知道这么称呼这个对不对，就是一键滚动下拉终端的意思，记得以前有人要过，后来发现这个可以做到，设置下透明很好看，默认F1下拉终端，正在用这个
 
-
 字体管理：Font-manager
 换字体的时候就希望能有一个和GNOME一样查看字体的软件阿，然后小老鼠果然不负所望的有了这个，很好用的
-
 
 文件管理：tuxcmd 
 以前说MC？Winodws下面的神器TotalCMD？试试看这个
@@ -423,6 +420,15 @@ export GTK_IM_MODULE=fcitx
 下载fcitx-qt5源码：https://github.com/fcitx/fcitx-qt5.git  
 
 编译前确认安装：libgl1-mesa-dev   libglu1-mesa-dev  extra-cmake-modules
+安装完以上以来cmake报错，安装
+（三组其中一个，后期待验证）
+extra-cmake-modules
+
+fcitx-libs-qt5 
+
+fcitx-libs-dev 
+libfcitx-qt5-dev 
+
 
 添加环境变量：export CMAKE_PREFIX_PATH="{gcc版本目录}/gcc_64/lib/cmake/"
 
@@ -436,6 +442,18 @@ make 得到:libfcitxplatforminputcontextplugin.so
 ```
 
 
+
+### Appimage解包:
+
+```
+*.Appimage --appimage-extract
+```
+
+### Appimage打包：
+
+```
+appimagetool
+```
 
 
 
@@ -840,6 +858,10 @@ Tools -> Tools Properties -> Key Bindings -> (最好创建一个副本)Make Copy
 
 
 
+## npm
+
+npm运行必须保证 /usr/bin/下有node,也就是通过命令行可以直接使用node
+
 
 
 ## 重启Fcitx实现重启输入法操作
@@ -917,7 +939,11 @@ locale -a
 
 pgrep -l xxx
 
+### 搜索命令:
 
+```
+whereis 命令名称
+```
 
 
 
@@ -987,7 +1013,17 @@ find ./ -name "文件/文件夹名称"
 
 
 
-### 
+## 常用命令工具:
+
+## zip 压缩
+
+zip -r *.zip 目录
+
+## rpm解压
+
+rpm2cpio xx.rpm | cpio -idmv
+
+ 
 
 # 软件问题解决
 

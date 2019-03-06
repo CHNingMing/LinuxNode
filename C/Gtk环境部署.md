@@ -12,10 +12,13 @@
 
 ​					-> Linker settings - > Other linker options:
 
+#### **注意：**别设置在项目上，设置项目上不代表Debug/Release  都设置
+
 添加：
 
 ```
-`pkg-config --libs --cflags gtk+-3.0` / `pkg-config --cflags --libs gtk+-3.0` (最近试成功)
+`pkg-config --libs --cflags gtk+-3.0` / (也成功)
+`pkg-config --cflags --libs gtk+-3.0` (最近试成功)
 ```
 
 ​					

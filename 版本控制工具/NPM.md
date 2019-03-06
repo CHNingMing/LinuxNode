@@ -2,6 +2,12 @@
 
 类似Maven，区别管理的是JS代码
 
+### NPM替换淘宝镜像：
+
+```
+npm config set registry http://registry.npm.taobao.org/
+```
+
 ## 安装：
 
 NodeJS新版都带NPM工具。
@@ -127,10 +133,6 @@ entry{
     vendor:['main.js','main_1.js'...]
 }
 ```
-
-
-
-
 
 
 

@@ -73,3 +73,18 @@ $result->fetch_all()
 $result->fetch_assoc()
 ```
 
+# $_Get
+
+### $_Get出现提示信息：Notice: Undefined index:
+
+原因是因为有NULL的对象,判断是否为NULL也不行
+
+```
+//假设没有这个参数(null)
+if( $_GET['fun_name'] != null ){		//照样还是会提示错误,不影响正常运行
+    
+}
+$_GET['fun_name'] != null		改成			isset($_GET['fun_name']);
+
+```
+

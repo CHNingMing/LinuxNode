@@ -19,3 +19,23 @@ include_directories(头文件路径，不用上引号修饰)
 执行make
 
 执行make install
+
+
+
+### CMake GTK
+
+CMakeLists.txt
+
+```
+find_package (PkgConfig REQUIRED)
+pkg_check_modules (GTK3 REQUIRED gtk+-3.0)
+set(CMAKE_C_STANDARD 11)
+include_directories (${GTK3_INCLUDE_DIRS})
+link_directories (${GTK3_LIBRARY_DIRS})
+set(SOURCE_FILES main.c)
+add_executable(wibus ${SOURCE_FILES})
+add_definitions (${GTK3_CFLAGS_OTHER})
+target_link_libraries (wibus ${GTK3_LIBRARIES})
+
+```
+
