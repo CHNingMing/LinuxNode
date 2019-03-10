@@ -1053,7 +1053,40 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 ```
 
+## 连接蓝牙耳机:
 
+安装:blueman
+
+安装:pulseaudio-module-bluetooth
+
+```
+pactl load-module module-bluetooth-discover
+```
+
+安装:bluez-firmware
+
+启动dbus服务和蓝牙服务：
+
+```
+service dbus start
+/etc/init.d/bluetooth start
+```
+
+## Protocol not available错误解决方案：
+
+输入命令加载module-bluetooth-discover模块即可：
+
+```
+# pactl load-module module-bluetooth-discover
+```
+
+这句命令一直没执行成功
+
+
+
+
+
+每一步别忘了移除蓝牙耳机设备重新添加
 
 # Wine
 
