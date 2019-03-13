@@ -715,6 +715,56 @@ http://download.springsource.com/release/STS/3.8.1.RELEASE/dist/e4.6/spring-tool
 
 ​	找到idea64.exe.vmoptions，在最后添加：-javaagent:JebrainsCrack绝对路径
 
+再通过命令行打开时会打印破解信息,选择**Activation code:**
+
+```
+ThisCrackLicenseId-{ 
+“licenseId”:”ThisCrackLicenseId”, 
+“licenseeName”:”idea”, 
+“assigneeName”:”“, 
+“assigneeEmail”:”邮箱地址”, 
+“licenseRestriction”:”For This Crack, Only Test! Please support genuine!!!”, 
+“checkConcurrentUse”:false, 
+“products”:[ 
+{“code”:”II”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”DM”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”AC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RS0”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”WS”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”DPN”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”PS”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”DC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RM”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”CL”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”PC”,”paidUpTo”:”2099-12-31”} 
+], 
+“hash”:”2911276/0”, 
+“gracePeriodDays”:7, 
+“autoProlongated”:false}
+```
+
+```
+{“code”:”II”,”paidUpTo”:”2099-12-31”}, 		//idea 到期时间
+{“code”:”DM”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”AC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RS0”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”WS”,”paidUpTo”:”2099-12-31”}, 		//WebStom 到期时间
+{“code”:”DPN”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”PS”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”DC”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”RM”,”paidUpTo”:”2099-12-31”}, 
+{“code”:”CL”,”paidUpTo”:”2099-12-31”}, 		//Clion 到期时间
+{“code”:”PC”,”paidUpTo”:”2099-12-31”} 
+```
+
+
+
+
+
+
+
 ###  Idea快捷键
 
 格式化代码		Ctrl + Alt + L
@@ -797,6 +847,8 @@ output path和Test output path都选择到刚才创建的classes路径
 	DiskUsageAnalyzer	容量清理  搜索baobab
 	
 	Redshift		眼睛保护
+	
+	Evince			PDF阅读器
 
 开发:
 

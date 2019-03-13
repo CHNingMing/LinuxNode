@@ -1,10 +1,12 @@
 # 数据库：
 
-clients2channel		客商和渠道关联表
+clients2channel		客商和销售渠道关联表
 
 ​	cc_id	渠道id​		
 
 price_baserule		商品基础价格
+
+price_agreerule		商品协议价格
 
 goods_detail		商品信息
 
@@ -18,7 +20,7 @@ clients_channel		销售渠道
 
 pub_clients_managerange	经营范围
 
-goods_giftrule		商品活动
+goods_giftrule		商品满减满赠规则
 
 pub_address		送货地址表
 
@@ -62,6 +64,26 @@ orders_return		退货信息表
 
 orders_comment	订单评价
 
+pub_clients			客户信息表
+
+stock_agreerule		库存基本策略
+
+gift					赠品信息
+
+goods_group		商品组合表
+
+integral_shop		积分商城表
+
+客户:
+
+​	
+
+客商:
+
+​	客商下有可能有多个客户,通过不同客户取买药
+
+
+
 ### 经营范围（pub_clients_managerange）：
 
 ​	用户cstid  货主id(cmpid)  确定经营范围		（一个客户有多个货主情况下能保证正确经营范围）
@@ -104,7 +126,7 @@ AccountService
 客户下单 -> 微信小程序消息提醒业务员 -> 
 ```
 
-如果订单已经半小时没业务员审单，表示业务员同意
+如果订单已经半小时没业务员审单，表示业务员同意,业务员看到订单半小时没人申,直接通过
 
 ### 订单数量：
 
@@ -132,6 +154,20 @@ HttpPostObject.getPriceStore(cstid,g_id,sownerid)
 
 ​	业务员
 
+### 商品显示过滤:
+
+销售渠道
+
+
+
+
+
+
+
+
+
+
+
 # 后台
 
 ### 最后一次削价:
@@ -140,13 +176,115 @@ HttpPostObject.getPriceStore(cstid,g_id,sownerid)
 
 只有后台能修改价格,每天早上后台向前台同步价格
 
+### 渠道管理
+
+#### 渠道管理:
+
+clients_channel表，过滤当前登录人货主
+
+#### 客商管理:
+
+通过销售渠道列出客商信息
+
+pub_clients -> client2channel[当前货主] -> clients_channel
+
+#### 无渠道客商:
+
+pub_clients     	isauth=1
+
+### 商品管理
+
+#### 商品管理
+
+goods  
+
+goods_detail:
+
+​	gd_delete		禁用标记,1:禁用  0:启用
+
+​	issyn			是否同步
+
+#### 上架:
+
+​	跳转广告管理页面		
+
+### 定价策略
+
+#### 基础定价策略
+
+查询商品明细goods_detail 商品goods 基础价格price_baserule 销售渠道clients_channel,条件:基础价格.ownerid=当前用户货主id
+
+#### 协议定价策略
+
+通过当前登录用户所属货主查询 price_agreerule ,分别绑定:goods, goods_detail, pub_clients
+
+添加销售渠道条件时:
+
+​	//过滤货主
+
+​	price_agreerule过滤登录客商所属货主
+
+​	//过滤出当前货主下销售渠道
+
+​	price_agreerule中cstid 和 clients2channel 中 cstid 比对,拿到对应cc_id
+
+​	查询选择的销售渠道(clients_channel.cc_pid)对应子渠道(cc_id),查询结果和cc_id对应
+
+#### 活动定价策略
+
+设置price_activityrule货主为当前登录用户货主
+
+关联(price_activityrule) gd_id on (goods_detail) gd_id 
+
+ goods g_id on goods_detail gd_id
+
+price_activityrule clevel 关联 clients_channel cc_id
+
+//选择销售渠道
+
+clients_channel cc_pid = 选择销售渠道值
+
+### 销售库存
+
+404
+
+#### 协议库存策略
+
+查询stock_agreerule 
+
+​	关联客户信息(pub_clients) 
+
+​	关联goods和goods_detail
+
+### 营销策略
+
+#### 赠品设置
+
+查询gift表
+
+#### 满减满赠规则:
+
+goods_giftrule表,过滤当前登录货主
+
+### 优惠券
+
+查询coupon
+
+### 商品组合
+
+查询good_groups
+
+### 商品专柜
+
+查询goods_special
 
 
 
 
-### 服务器
 
-​		234			既能连前台，也能连后台
+## 服务器
+
+​		15.234			既能连前台，也能连后台
 
 ​		15.250		消息服务器
 
@@ -162,7 +300,11 @@ ZJ:
 
 ​	客户手动兑换，兑换后由业务员看后送过去
 
+同步时间:
 
+​	早上5点
+
+​	晚上11点
 
 
 
@@ -170,21 +312,23 @@ ZJ:
 
 ​	组合价格	表示一组商品包装起来卖，如果买只能买一组。
 
-销售库存-协议库存策略:
+销售库存-协议库存策略：
 
 
 
-​	
-
-CMS自动审核：
-
-​	
 
 
+# 整体流程:
 
-​		
+前台：浏览商品,商品下单,订单审核,积分商城,账户管理
 
-​	
+后台：接受订单信息,向前台同步商品价格,渠道管理,客商管理
+
+
+
+
+
+
 
 
 

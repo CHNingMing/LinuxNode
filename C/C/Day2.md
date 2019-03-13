@@ -79,7 +79,13 @@ printf("%9s");
 
 打印9个字符
 
+#### PS:%s占位符读字符时读到\0结束字符串
 
+C89下for报:
+
+```c
+‘for’ loop initial declarations are only allowed in C99 or C11 mode
+```
 
 
 
