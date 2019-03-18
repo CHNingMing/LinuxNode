@@ -74,13 +74,33 @@ goods_group		商品组合表
 
 integral_shop		积分商城表
 
+integral_rule		赠品表
+
+cms_article			文章信息
+
+home_catalog		首页目录,首页分层展示
+
+pub_role			角色
+
+pub_menu			菜单表
+
+pub_feedback		反馈信息
+
+diffprice_group		差价单组
+
+lrt_type				商品大类
+
+
+
+
+
 客户:
 
-​	
+​	一个客户只能购买指定类型药品	
 
 客商:
 
-​	客商下有可能有多个客户,通过不同客户取买药
+​	客商下有可能有多个客户,通过不同客户去买药
 
 
 
@@ -160,6 +180,8 @@ HttpPostObject.getPriceStore(cstid,g_id,sownerid)
 
 
 
+每一个货主在cms中都有一个默认收货地址
+
 
 
 
@@ -195,6 +217,10 @@ pub_clients     	isauth=1
 ### 商品管理
 
 #### 商品管理
+
+大类列表:查询lrt_type,type=1000
+
+类别列表:查询lrt_type,type=1010
 
 goods  
 
@@ -278,7 +304,121 @@ goods_giftrule表,过滤当前登录货主
 
 查询goods_special
 
+##  积分商城
 
+### 积分商品
+
+查询integral_shop表
+
+### 积分礼品
+
+查询gift
+
+### 兑换信息
+
+404
+
+## 积分规则
+
+查询integral_rule表
+
+## 内容管理
+
+### 栏目管理
+
+查询cms_channel表
+
+### 文章审核
+
+查询cms_article
+
+### 文章管理
+
+查询cms_article
+
+### 广告管理
+
+查询cms_advert
+
+### 目录管理
+
+查询home_catalog
+
+## 客商管理
+
+### 客商账号
+
+查询pub_account表 通过cstid关联 pub_clients表
+
+## 订单管理
+
+### 订单审核
+
+
+
+### 在运订单
+
+查询orders表,type=0(表示正常) 并且 status = 4(表示已发货)
+
+### 请货订单
+
+查询orders,o_type=1(请货订单),
+
+关联pub_account,(o_id->o_accountid)
+
+过滤出业务员开启自动审核订单(auto=1)
+
+过滤订单auto = 0
+
+### 换货订单
+
+查询pub_account(cstid)关联pub_clients
+
+### 历史订单
+
+查询orders,o_status=0或5			已完成/已退货
+
+## 系统管理
+
+### 部门管理
+
+查询dept
+
+### 人员管理
+
+查询pub_emp (roleid/r_id)关联pub_role
+
+关联 pub_dept	(deptid/deptid)
+
+
+
+### 角色管理
+
+查询pub_role
+
+### 资源管理
+
+查询pub_menu
+
+### 日志管理
+
+sys_log_(当前日期yyyy-MM-dd)
+
+## 差价单
+
+### 差价单组
+
+查询diffprice_group
+
+
+
+
+
+
+
+# orders:
+
+auto
 
 
 
@@ -326,13 +466,33 @@ ZJ:
 
 
 
+同步程序:
+
+​	同步CMS订单状态,通过b2b中cstid
 
 
 
+CMS 
+
+​	CMS订单通过后,临时在库存中减去对应订单商品数量,把订单写到WMS,
+
+​	
+
+WMS 库存
+
+​	逻辑库:
+
+​		把一些医院划分到一个逻辑库,这个逻辑库里指定时间内只能卖指定数量药品.
+
+​	类似商品分组
 
 
 
+TMS 物流系统
 
+​	根据区域不同,客户需求不同.派送不同人员/不同车辆安排送货
+
+​	按地区划分
 
 
 
