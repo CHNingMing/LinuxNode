@@ -823,7 +823,9 @@ output path和Test output path都选择到刚才创建的classes路径
 	
 	Oracle VM VirtualBox
 	
-	rdesktop 远程连接工具
+	rdesktop 远程连接工具 windows
+	
+	putty 	ssh连接工具
 	
 	搜狗输入法
 	
@@ -1065,7 +1067,7 @@ find ./ -name "文件/文件夹名称"
 
 
 
-## 常用命令工具:
+# 常用命令工具:
 
 ## zip 压缩
 
@@ -1076,6 +1078,12 @@ zip -r *.zip 目录
 rpm2cpio xx.rpm | cpio -idmv
 
  
+
+## putty快捷连接ssh
+
+putty ip -l username -pw password
+
+
 
 # 软件问题解决
 
