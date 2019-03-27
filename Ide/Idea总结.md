@@ -86,6 +86,20 @@ Alt+F8	运行选中的代码/动态执行代码
 
 # 问题总结
 
+###  idea 包重叠显示/简写
+
+点击齿轮
+
+Flatten Packes		同名包重叠
+
+Hiden Empty Middle Packes
+
+### idea 点击文件自动打开 关闭
+
+点击齿轮
+
+Autoscroll to Source		去掉对勾
+
 ### 提示javax.servlet.http没有找到相关类错误
 
 ### 打开项目管理工具 -- 	Dependencies -- Tomcat x.x.x   > 编辑(右边小铅笔)  > 加号  选择tomcat\lib\servlet-api.jar	

@@ -1085,6 +1085,12 @@ putty ip -l username -pw password
 
 
 
+## 查看Debian版本
+
+lsb_release -cs
+
+
+
 # 软件问题解决
 
 ## 网易云音乐安装和打开没反映解决

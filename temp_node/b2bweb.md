@@ -112,6 +112,16 @@ lrt_type				商品大类
 
 ​	goods通过managerange绑定经营范围id
 
+​	查询商品时,过滤客商只能看到他自己所属经营范围商品
+
+### 下单:
+
+
+
+
+
+
+
 ### 客商通过货主确认销售渠道：
 
 客商- >货主->多个销售渠道
@@ -178,7 +188,15 @@ HttpPostObject.getPriceStore(cstid,g_id,sownerid)
 
 销售渠道
 
+  1. 拿到客商所属货主  查询clients2channel
 
+  2. 左连接 price_baserule ,clevel = cc_id
+
+  3. 左连接 goods_detail   gd_id = gd_id
+
+     返回商品结果就是客商可以看见那些商品
+
+经营范围
 
 每一个货主在cms中都有一个默认收货地址
 
