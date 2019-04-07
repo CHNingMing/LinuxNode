@@ -2,11 +2,31 @@
 
 项目配置信息描述
 
+### 设置CMake版本
+
+```
+cmake_minimum_required(VERSION 2.8)
+```
+
+指定项目名称，一般和项目文件夹对应
+
+```
+project(qt_gtk_hello)
+```
+
+
+
 ### 添加自定义头文件路径
 
 ```
 include_directories(头文件路径，不用上引号修饰)
 ```
+
+
+
+
+
+
 
 ## 安装CMake
 

@@ -126,6 +126,8 @@ shade：窗口隐藏按钮
 
 ### xfce4-screenshooter -r 按区域截图
 
+### 注销Xfce
+
 pkill Xorg
 
 ## Xfce4  自带软件：
@@ -301,6 +303,12 @@ notify-send 通知标题 通知主体
 ```
 notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
 ```
+
+### xfce桌面没图标，右键没反应解决
+
+运行:
+
+xfdesktop
 
 # lxde部分：
 
@@ -981,7 +989,7 @@ fc-cache -f -v
 
 locale -a
 
-### 查看/设置环境变量
+## 查看/设置环境变量
 
 #### echo $PATH
 
@@ -989,15 +997,31 @@ locale -a
 
 ​	每个环境变量用 ：(英文冒号)分割
 
-#### 列出制定进程Pid和名称
+## 列出制定进程Pid和名称
 
 pgrep -l xxx
 
-### 搜索命令:
+## 搜索命令:
 
 ```
 whereis 命令名称
 ```
+
+##  查看磁盘容量
+
+```shell
+df 
+```
+
+
+
+## 查看当前目录文件容量
+
+```shell
+du -h
+```
+
+
 
 
 
@@ -1026,19 +1050,35 @@ whereis 命令名称
 
 ​	撤销：u
 
+​	恢复上一步操作: Ctrl+R
 
+​	多选文本:
 
-​		
+​		进入视图模式 : v
+
+​		通过 h j k l 移动光标实现
+
+​		y : 复制
+
+​		p : 粘贴
+
+​		d : 剪切
+
+​	光标跳转:
+
+​		^ 当前行开始
+
+​		$ 当前行结束
 
 ```
 搜索指定字符：
-	切换到命令模式,输入/搜索的字符串
+	切换到命令模式,输入 / 搜索的字符串
 ```
 
 ## Find
 
 ```
-find 路径 [参数]
+find 查询路径 [参数]
 简单查找:
 	find . -name xxx.xxx
 -mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件
@@ -1077,7 +1117,9 @@ zip -r *.zip 目录
 
 rpm2cpio xx.rpm | cpio -idmv
 
- 
+###  tar 压缩
+
+tar -cvf *.tar /xxxx目录
 
 ## putty快捷连接ssh
 

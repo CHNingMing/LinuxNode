@@ -118,6 +118,8 @@ docker run -i -t centos:7
 
 centos:7 :  已有容器名
 
+:7 仓库TAG
+
 
 
 ### 后台运行容器
@@ -144,9 +146,25 @@ docker logs 容器id
 
 docker top 容器id
 
-### 退出容器
+### 提交仓库
+
+进入仓库改好后exit/Ctrl+D退出,退出时**记录仓库ID**.
+
+仓库ID在输入命令时 **[root@仓库ID 当前路径名]** 显示
+
+#### 提交仓库:
+
+提交时,如果已有 **仓库名称:仓库TAG**   是更新,没有是创建
+
+docker commit -m="提交信息" -a="提交作者" 仓库id 仓库名称:仓库TAG 
+
+仓库名称必须为小写
+
+### 退出并关闭容器
 
 Ctrl + D / exit
 
+### 退出容器
 
+Ctrl + P +Q
 

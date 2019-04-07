@@ -103,3 +103,37 @@ app:layout_constraintDimensionRatio="H,2:1"
 
 
 
+# XML文件：
+
+## 约束
+
+### android studio 
+
+```xml
+xmlns:app="http://schemas.android.com/apk/res-auto"
+```
+
+修饰空间中可以使用那些属性，**res-auto是android studio 特有方法**
+
+res-auto表示idea自动找对应包路径
+
+### eclipse
+
+```xml
+xmlns:app="http://schemas.android.com/apk/res/com.xxx.xxx"
+```
+
+eclipse 不支持res-auto，需要将res-auto替换成具体控件类所在包
+
+
+
+如果是Eclipse将项目导入android studio ，需要将所有res/com.xxx.xxx改为 res-auto
+
+
+
+
+
+
+
+
+

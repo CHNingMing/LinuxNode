@@ -55,6 +55,8 @@ layouo在 res/layout下,R.layout.*.xml,回去res/layout下查找xml视图文件
 
 ## res
 
+res文件都属于可编译文件,最后调用时可以使用R.*获取
+
 drawable-*		图片文件
 
 layout			界面文件
@@ -68,6 +70,20 @@ values			字符串、颜色、样式
 ​	string.xml	字符串
 
 ​	style.xml	样式
+
+### res引入图片文件
+
+图片文件全部放在drawable下,以便代码中设置图片时可以**view.getResource().getDrawable(R.drawable.xxx获取)**
+
+
+
+## assets
+
+配置文件,默认android配置文件会取这个目录下读取
+
+
+
+
 
 ## 取values某个值时只需要:
 

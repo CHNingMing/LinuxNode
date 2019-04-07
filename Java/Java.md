@@ -40,3 +40,7 @@ org.eclipse.wst.common.component文件规定了项目怎么组装成一个webapp
 
 org.eclipse.wst.common.project.facet.core.xml指示了项目中**启用那些facet及facet的版本**。
 
+
+
+
+
