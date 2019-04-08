@@ -56,6 +56,7 @@ select id ,group_concat(price,separator ';') from goods group id;
 |2 | 20|
 |3 | 200;500 |
 分割时排序
+
 ```mysql
 select id,group_concat(price order by price desc) from goods group id;
 ```
