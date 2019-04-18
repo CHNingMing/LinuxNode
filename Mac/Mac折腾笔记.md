@@ -106,6 +106,8 @@ The Unarchiver	压缩软件
 
 Kext Utillty		实时加载kext
 
+欧陆词典
+
 #### 清理工具：
 
 Dr.Cleaner Pro(清理垃圾) + CleanMyMac X(优化系统)
