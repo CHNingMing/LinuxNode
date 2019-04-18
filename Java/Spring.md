@@ -42,9 +42,27 @@
 
 ```
 
+# Spring 各个组件功能
+
+核心组件：core 、bean 、context
+
+## Spring-core 
+
+spring引入其他组件时，都必须要引入spring-core,这是其他组件的基础
+
+## Spring-beans
 
 
 
 
 
-	
+
+
+
+
+
+
+
+
+
+​	

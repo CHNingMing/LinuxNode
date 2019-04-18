@@ -158,7 +158,16 @@ function onResponse(data){
 
 
 
+## 自定义网站图标
 
+```html
+  <link rel="icon" href="publicizinggoods/favicon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="publicizinggoods/favicon.png" type="image/x-icon" />
+```
+
+publicizinggoods/favicon.png	: 基于当前站点图标
+
+## 
 
 
 

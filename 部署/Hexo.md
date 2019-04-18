@@ -15,11 +15,31 @@ npm install hexo-server --save
 
 # HEXO
 
-入口文件:layout/_partial/layout.ejs
+入口文件:layout/layout.ejs
+
+源页面:${hexo}/source/_posts/*.md 	设置后在右侧目录显示
+
+资源文件:source/js/s.js			source非hexo下source,是主题内source
+
+Html页:source/*.html
+
+head部分:layout/_partial/head.ejs
 
 layout/_partial/article.ejs			详细文档内容
 
+layout/_partial/sidebar.ejs		右侧目录内容
 
+## 初始化HEXO
+
+npm install hexo-cli -g
+
+hexo init [部署名称]
+
+cd [部署名称]
+
+npm install 
+
+hexo server
 
 
 

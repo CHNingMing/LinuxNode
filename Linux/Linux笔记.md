@@ -906,6 +906,24 @@ Tools -> Tools Properties -> Sql Commander -> Auto Completion
 
 Tools -> Tools Properties -> Key Bindings -> (最好创建一个副本)Make Copy -> 依次打开 Main Menu /Edit/**Show Auto Completion**   只设置First Keystroke就可以
 
+# Linux 搭建微信小程序
+
+下载nw运行时
+
+下载开发工具包
+
+```
+git clone https://github.com/cytle/wechat_web_devtools.git
+```
+
+复制包内:package.nw到nw目录,通过${nw目录}/bin/nw执行文件启动
+
+
+
+
+
+
+
 ## 磁盘结构：
 
 120G：

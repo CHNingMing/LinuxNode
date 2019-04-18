@@ -1,3 +1,5 @@
+[TOC]
+
 # MySql
 
 设置mysql密码:
@@ -90,6 +92,31 @@ select id,group_concat(price order by price desc) from goods group id;
    ```mysql
    select TIMESTAMPDIFF([类型],开始日期,结束日期)
    ```
+
+## Group
+
+### 组连接:group_concat()
+
+必须配合group 关键字使用。
+
+group_concat([ distinct ] 连接字段 [ order by 排序字段 [separator '分割符'] ])
+
+```sql
+-- 假设t_a name有重复，id不重复,以_分割
+select name,group_concat(distinct id order by id separator '_') from t_a group by name
+
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
