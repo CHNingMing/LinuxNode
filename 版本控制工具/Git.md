@@ -34,3 +34,19 @@ maven过滤子工程需要手动添加子工程项目名,因为聚合工程下�
 
 ```
 
+### git更新被拒绝，当前分支落后于远程分支解决：
+
+```shell
+
+git remote add origin https://xx.com/*.git
+git fetch origin			//获取远程更新
+git merge origin/master		//把更新的内容合并到本地分支
+
+```
+
+
+
+
+
+
+

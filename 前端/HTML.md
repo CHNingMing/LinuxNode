@@ -1,3 +1,5 @@
+[TOC]
+
 ## Content-Type：
 
 Content-Type是响应到客户端时告诉浏览器响应内容以哪种方式解析。
@@ -167,7 +169,7 @@ function onResponse(data){
 
 publicizinggoods/favicon.png	: 基于当前站点图标
 
-## 
+
 
 
 
