@@ -22,6 +22,114 @@ String、Hash、List(列表)、set(集合)、zset(有序集合)
 
 	配置文件中可以配置
 
+# Redis-server
+
+启动Redis：
+
+```
+redis-server
+```
+
+指定配置文件启动redis：
+
+```
+redis-server [配置文件路径]
+```
+
+
+
+
+
+# Redis-Cli
+
+### 连接Redis
+
+```shell
+redis-cli -h 127.0.0.1 -p 6379
+```
+
+
+
+
+
+## 操作数据
+
+### 添加数据
+
+#### set key value [...]
+
+```
+set myHello HelloRedis
+```
+
+### 删除数据
+
+DEL key [...]
+
+```
+del myHello
+```
+
+### Hash 哈希
+
+HMSET key **field...**
+
+```
+HMSET myhash field1 "field1_value" field2 "field2_value"
+```
+
+HGET key **field**
+
+````
+HGET myhash field1
+````
+
+### List(列表)
+
+#### 创建一个列表：
+
+lpush key value
+
+```
+lpush test_list redis
+lpush test_list mongodb
+lpush test_list rabitmq
+```
+
+#### 列出列表：
+
+lrange key startIndex endIndex
+
+```
+lrange test_list 0 5
+```
+
+### Set(集合)
+
+列表内容不能重复
+
+#### 添加项:
+
+sadd key itemvalue
+
+```
+sadd test_set redis
+sadd test_set mongodb
+sadd test_set rabitmq
+sadd test_set rabitmq
+```
+
+#### 列出列表：
+
+smembers key
+
+```
+smembers key
+```
+
+### zset 有序集合
+
+zadd key score member
 
 
 
@@ -31,4 +139,21 @@ String、Hash、List(列表)、set(集合)、zset(有序集合)
 
 
 
+
+
+## 查看配置
+
+```
+CONFIG GET *
+```
+
+\* 表示所有
+
+可以：
+
+```
+CONFIG GET bind
+> "bind"
+> ""
+```
 

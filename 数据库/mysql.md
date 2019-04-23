@@ -104,8 +104,14 @@ group_concat([ distinct ] 连接字段 [ order by 排序字段 [separator '分�
 ```sql
 -- 假设t_a name有重复，id不重复,以_分割
 select name,group_concat(distinct id order by id separator '_') from t_a group by name
+```
 
+### MySql 查询中涉及到中文字段查询时中文转换成？号问题：
 
+在连接数据库时，添加对应参数:
+
+```
+?generateSimpleParameterMetadata=true&useUnicode=true&characterEncoding=utf8
 ```
 
 
