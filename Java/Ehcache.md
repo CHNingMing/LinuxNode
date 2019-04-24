@@ -97,13 +97,13 @@ diskExpiryThreadIntervalSeconds 设置检测Element失效检测和清理线程�
 
 
 
-
-
 ps:0 表示无限时间
 
 
 
 ## Ehcache整合Spring
+
+https://www.cnblogs.com/fashflying/p/6908028.html
 
 主要使用两个注解：
 
@@ -123,11 +123,98 @@ ps:0 表示无限时间
 
 ​	方法/类 标注@CacheEvict后，在调用方法前都会清除缓存。可通过condition参数设置清除缓存条件。
 
-value[必须]:
+### value[必须]:
 
 表示当前方法返回值会被返回到那个cache上
 
-key:
+### key:
 
 缓存的key,当没有设置key时，使用默认策略生成key,表示使用方法的参数和类型作为key
+
+#### 使用方法参数指定Key
+
+#参数名
+
+​	#user : user 参数对象值作为key，
+
+​		假设user有id和name属性，也可以通过user.id/user.name作为缓存的key.
+
+#pindex
+
+​	#p0 : 方法第一个参数作为key。
+
+[待确定] 如果key指向的是一个对象，则用对象**内存地址**作为key
+
+
+
+#### 使用Spring指定Key
+
+Spring 提供了#root对象，通过这个对象，可以获取到当前方法一系列属性当缓存的key：
+
+| 属性名称 | 描述 | 示例 |
+| -------- | ---- | ---- |
+| methodName  | 当前方法名                  | #root.methodName     |
+| method      | 当前方法                    | #root.method.name    |
+| target      | 当前被调用的对象            | #root.target         |
+| targetClass | 当前被调用的对象的class     | #root.targetClass    |
+| args        | 当前方法参数组成的数组      | #root.args[0]        |
+| caches      | 当前被调用的方法使用的Cache | #root.caches[0].name |
+
+默认可以直接写属性名，不用添加#root
+
+### condition
+
+通过传入对象的数据，限制那些需要缓存，那些不需要缓存。
+
+
+
+pom，测试通过:
+
+```xml
+	<properties>
+        <spring.version>3.1.1.RELEASE</spring.version>
+        <junit.version>4.10</junit.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+```
 
