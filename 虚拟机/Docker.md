@@ -64,7 +64,9 @@ Error response from daemon: conflict: unable to delete 6fae60ef3446 (must be
 docker rmi -f  镜像id
 ```
 
+删除的镜像必须保证没有子镜像，否则会报：
 
+Error response from daemon: conflict: unable to delete 09d6b0c7f5d2 (cannot be forced) - image has dependent child images
 
 ### 创建一个容器
 
@@ -97,6 +99,8 @@ COMMAND : 运行时执行命令
 CREATED : 创建时间
 
 PORTS	: 	容器内端口映射宿主环境端口
+
+### 设置容器TAG
 
 
 
@@ -156,7 +160,7 @@ docker top 容器id
 
 提交时,如果已有 **仓库名称:仓库TAG**   是更新,没有是创建
 
-docker commit -m="提交信息" -a="提交作者" 仓库id 仓库名称:仓库TAG 
+docker commit -m="提交信息" -a="提交作者" 仓库`id` 仓库名称:仓库TAG 
 
 仓库名称必须为小写
 

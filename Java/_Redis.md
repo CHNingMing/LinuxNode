@@ -129,15 +129,112 @@ smembers key
 
 ### zset 有序集合
 
-zadd key score member
+#### 添加
+
+```
+zadd <key> <score> <value>
+```
+
+score : 排序字段
+
+key : 键
+
+value ： 值
+
+#### 列出列表
+
+```
+zrange <key> <startindex> <endindex> WITHSCORES
+```
+
+startindex : 从第startindex个项开始
+
+endindex ：到第endindex个项结束
 
 
 
+```shell
+
+zadd key1 0 value1
+zadd key1 1 value2
+zadd key1 4 value4
+zadd key1 3 value1
+
+```
+
+## 发布订阅
+
+### 创建：
+
+```shell
+# SUBSCRIBE <subscribeName>
+SUBSCRIBE sub1
+# 创建口会阻塞客户端，重新开启一个redis-cli
+```
+
+### 发布订阅:
+
+```shell
+# PUBLISH <subscribeName> value
+publish sub1 "hello ~"
+# 对应订阅者会受到"hello ~"信息
+
+
+```
+
+## 事务
+
+redis事务执行分成三步：
+
+1. 开启事务
+
+2. 命令入列
+
+3. 执行事务
 
 
 
+事务不会再其中一条命令失败后回滚，也不会因为其中一条命令失败影响后续命令知行。
 
+#### 开启事务：
 
+```
+MULTI
+```
+
+至此，输入的命令都会加入到事务中，
+
+直到输入exec命令，把输入的所有命令依次执行。
+
+#### 命令入列：
+
+```
+set name "zhangsan"
+>QUEUED
+set name "wangwu"
+>QUEUED
+get name
+>QUEUED
+```
+
+#### 执行事务：
+
+```
+exec
+1) OK
+2) OK
+3) "wangwu"
+```
+
+#### 放弃事务：
+
+DISCARD
+
+在执行MULTI后，命令都会加入到执行队列，
+
+如遇到exec,执行队列中命令
+
+遇到discard,取消当前事务
 
 
 
@@ -156,4 +253,41 @@ CONFIG GET bind
 > "bind"
 > ""
 ```
+
+# Redis配置
+
+参考：https://www.cnblogs.com/kreo/p/4423362.html
+
+## redis.conf配置
+
+配置文件中引入其他conf配置：
+
+```properties
+include /xx/*.conf
+include /xx/*.conf
+include /xx/*.conf
+```
+
+## 保存配置
+
+save <间隔时间(秒)> <写入次数>
+
+```properties
+ # 每 900 秒检测到key变动 3 次保存
+ save 900 3
+ # 没 100 秒检测到key变动 10 次保存
+ save 300 10 
+```
+
+
+
+
+
+
+
+
+
+
+
+
 

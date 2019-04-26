@@ -20,6 +20,8 @@ yum install **openssh-server** -y
 
 编辑 /etc/ssh/sshd_config
 
+有类似同名文件，一定要确认是**sshd_config**而不是 ssh_config
+
 ```
 # 感觉是打开监听
 Port 22
@@ -31,7 +33,6 @@ PermitRootLogin yes
 
 # 开启使用用户名密码验证
 PasswordAuthentication yes
-
 ```
 
 生成主机key:

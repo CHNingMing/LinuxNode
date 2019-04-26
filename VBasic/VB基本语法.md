@@ -119,9 +119,21 @@ msgbox i
 next
 ```
 
+## 字符串
 
+### 得出字符串长度
 
+int len(String )
 
+### 截取字符串
+
+Stirng mid(String,startindex,num)
+
+string:要截取的字符串
+
+startindex:截取字符串开始位置
+
+num:从开始位置截取几位
 
 
 

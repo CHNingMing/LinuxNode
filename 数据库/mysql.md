@@ -128,6 +128,80 @@ select name,group_concat(distinct id order by id separator '_') from t_a group b
 
 
 
+## debian 安装mysql:
+
+打开mysql官网，选择apt-repository,下载deb包，这个包安装需要一些命令，打开debian源基础上添加一个163源，即可安装那两个命令（查看系统版本命令）。
+
+这个包时自动根据当前系统选择mysql版本。
+
+安装时选择OK。
+
+```
+apt-get update
+apt-get install mysql-server
+```
+
+期间输入密码和选择mysql密码强度，选择弱。
+
+
+
+## 问题：
+
+systemctl status mysql.service				查看mysql错误信息
+
+此次问题因为数据库容量满了。
+
+# mysql密码重置
+
+先停止mysql：
+
+```
+service mysql stop
+```
+
+运行安全模式：
+```
+mysqld --skip-grant-tables --user=root
+```
+
+启动安全模式后，会堵塞终端，在开一个终端，执行:
+
+```
+mysql -u root
+```
+
+
+
+如果提示没有mysqld文件夹，创建：
+
+```
+mkdir /usr/run/mysqld
+```
+
+报错后，三种查看错误方式：
+
+```shell
+systemctl status mysql.service
+journalctl -xe
+cat /var/log/mysql/error.log
+```
+
+error.log报错：
+
+mysqld: File './binlog.index' not found (OS errno 13 - **Permission denied**)
+
+**加粗英文表示权限被拒绝**
+
+binlog.index在：/var/lib/mysql/binlog.index
+
+给binlog.index所在的mysql目录设置权限：
+
+```
+chgrp -R mysql /var/lib/mysql
+chown -R mysql /var/lib/mysql
+```
+
+**出问题Mysql版本：Server version: 8.0.16 MySQL Community Server - GPL**
 
 
 

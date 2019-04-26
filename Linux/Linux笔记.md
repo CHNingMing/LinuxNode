@@ -955,7 +955,7 @@ fcitx -r
 
 
 ## 安装服务端openssh-server和客户端openssh-client
-
+```
 	客户端直接 apt-get install openssh-client
 		远程连接:ssh 用户名@ip地址
 	服务端:
@@ -974,6 +974,32 @@ fcitx -r
 	    PermitRootLogin yes
 	    StrictModes yes
 	重启服务器
+```
+
+
+## 远程上传/下载文件
+
+应急情况scp工具实现远程上传下载
+
+scp -P <端口号> 源 目标
+
+远程路径格式:user@ip:/路径
+
+```shell
+# 远程下载到本机 大写P
+scp -P 22 root@192.168.56.101:/opt/xx.tar.tz /opt/xx.tar.tz
+# 本机上传到源 大写P
+scp -P 22 /opt/xx.tar.tz root@192.168.56.101:/opt/xx.tar.tz
+```
+
+-v :显示文件传输进度
+
+-P :大写P 执行ssh端口
+
+-4 : 强行使用IPV4
+
+-6 : 强行使用ipv6
+
 
 # 软件使用
 
@@ -1186,7 +1212,27 @@ putty ip -l username -pw password
 
 lsb_release -cs
 
+## DPKG
 
+
+
+1.下载的软件存放位置
+
+```
+/var/cache/apt/archives2.安装后软件默认位置
+```
+3.可执行文件位置 
+```
+/usr/bin
+```
+4.配置文件位置
+```
+/etc
+```
+5.lib文件位置
+```
+/usr/lib
+```
 
 # 软件问题解决
 
@@ -1205,6 +1251,23 @@ dpkg - i安装，新立得解决依赖问题
 ```
 fcitx -r
 ```
+
+## Ping问题：
+
+ping 出现：network is unreachable
+
+情况1：
+
+```
+ /etc/network/interface下配置网卡时，有没有加auto 网卡。
+ 如果没设置，其他的也不会生效。
+```
+
+
+
+
+
+
 
 ### codeblocks切换输入法：
 
