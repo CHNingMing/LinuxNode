@@ -1,3 +1,5 @@
+
+
 Linux 安装VBOX虚拟机	virtualbox-5.1_5.1.38-122592_Debian_stretch_amd64.DEB  尝试可用
 
 历史下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds
@@ -36,3 +38,6 @@ Linux 修改网卡
 ​		ifconfig 网卡名称 hw ether XX XX XX XX XX XX   #MAC地址
 ​		ifconfig 网卡名称 up   #打开网卡
 
+windows xp 下网卡驱动：
+
+在vbox种设置网卡驱动为 ： Intel PRO/1000 T 服务器，windows xp 自带这个驱动不用安装
