@@ -1,5 +1,11 @@
 
 
+## 当前测试Window 稳定版本vbox：4.3.12
+
+http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe
+
+
+
 Linux 安装VBOX虚拟机	virtualbox-5.1_5.1.38-122592_Debian_stretch_amd64.DEB  尝试可用
 
 历史下载地址：https://www.virtualbox.org/wiki/Download_Old_Builds
