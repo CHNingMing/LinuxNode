@@ -69,6 +69,12 @@ passwd [username]
 yum install initscripts -y
 ```
 
+## 客户端连接时出现 no kex alg
+编辑/etc/ssh/sshd_config,在末尾添加:
+```
+KexAlgorithms diffie-hellman-group1-sha1
+```
+
 
 
 
