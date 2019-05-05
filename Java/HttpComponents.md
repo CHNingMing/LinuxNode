@@ -58,9 +58,78 @@ HttpGet/HttpPost 都有setParams(HttpParams)方法
 
 Http reposne对象内容包括：使用协议版本、Http 状态码、文本内容
 
-# 
 
 
+# URL
+
+存储简单连接情况
+
+```
+URL url = new URL("http://xxx.com/xx");
+```
+
+# URI
+
+存储复杂连接
+
+```java
+import org.apache.http.client.utils.URIBuilder;
+import java.net.URL;
+new URIBuilder()
+	.setScheme(String)  //协议
+    .setHost(String)	  //主机
+    .setPath(String)	  //请求具体路径
+    .setPort(int)		  //端口
+    .setParameter(String key,String value)//参数
+    .....
+    .build();
+//可任意简写
+new URIBuilder("https://").setHost("www.baidu.com")
+new URIBuilder("https://www.baidu.com").setPath("/xxx")
+```
+
+
+
+
+
+# 简单请求
+
+## 请求对象
+
+```java
+CloseableHttpClient httpClient = HttpClients.createDefault();
+```
+
+## get/post
+
+```java
+HttpGet httpget = new HttpGet(URL/URI);
+HttpPost httppost = new HttpPost(URL/URI);
+```
+
+## 响应对象
+
+```java
+CloseableHttpResponse response = closeableHttpClient.execute(HttpGet/HttpPost);
+```
+
+
+
+## CloseableHttpResponse
+
+请求响应对象
+
+### 获取响应状态码：
+
+```java
+CloseableHttpClient对象.getStatusLine().getStatusCode()
+```
+
+### 获取响应内容
+
+```java
+String EntityUtils.toString(CloseableHttpClient对象.getEntity())
+```
 
 
 

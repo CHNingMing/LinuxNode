@@ -60,6 +60,41 @@ spring引入其他组件时，都必须要引入spring-core,这是其他组件�
 
 
 
+# 其他
+
+## spring加载配置文件属性
+
+保证xml中加载了*.properties
+
+jdbc.properties:
+
+```properties
+jdbc.optjdbc.server=test opt attributes!
+```
+
+
+
+```xml
+
+<context:property-placeholder location="classpath:jdbc.properties,classpath:httpclient.properties,classpath:taobao.properties,classpath:redis.properties"/>
+
+```
+
+在spring维护的程序中，直接声明属性：
+
+```java
+@Value("${jdbc.optjdbc.server}")
+private String optjdbcServer;
+```
+
+
+
+
+
+
+
+
+
 
 
 
