@@ -1182,6 +1182,14 @@ find log -mtime +7 -name "*.log" -ok cat {} \;
 
 -S : 对文件大小进行排序
 
+## 查看Linux发行版本
+
+lsb_release -a  比较详细
+
+
+
+
+
 
 
 
@@ -1212,9 +1220,26 @@ putty ip -l username -pw password
 
 lsb_release -cs
 
+# 端口映射
+
+windows下：nat123方案
+
+linux 下 : Sunny-Ngrok
+
+​	启动时通过隧道id启动。
+
+```shell
+
+sunny clientid 隧道id 多个空格隔开
+```
+
+
+
+
+
+
+
 ## DPKG
-
-
 
 1.下载的软件存放位置
 

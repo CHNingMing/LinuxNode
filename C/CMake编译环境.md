@@ -2,11 +2,15 @@
 
 项目配置信息描述
 
-### 设置CMake版本
+CmakeLists 命令参数不用添加引号修饰
+
+### 设置最低CMake版本
 
 ```
 cmake_minimum_required(VERSION 2.8)
 ```
+
+VERSION 2.8： 指定版本号
 
 指定项目名称，一般和项目文件夹对应
 
@@ -14,7 +18,7 @@ cmake_minimum_required(VERSION 2.8)
 project(qt_gtk_hello)
 ```
 
-
+qt_gtk_hello:项目名称
 
 ### 添加自定义头文件路径
 
@@ -22,9 +26,15 @@ project(qt_gtk_hello)
 include_directories(头文件路径，不用上引号修饰)
 ```
 
+### 编译文件:
 
+```
+add_executable(编译后文件 源文件)
+```
 
+编译后文件：编译后文件名称
 
+源文件：源文件名称，可以有多个，每个按空格分开
 
 
 

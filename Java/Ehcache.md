@@ -218,3 +218,40 @@ pom，测试通过:
     </dependencies>
 ```
 
+# 错误整理
+
+Ehcache 报错:
+
+```
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'exInterfaceController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: org.springframework.cache.CacheManager com.hangar.cms.action.BaseController.cacheManager; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in file [/opt/JavaWork/518CMS/518CMS/out/artifacts/518CMS_war_exploded/WEB-INF/classes/com/hangar/cms/config/springHibernate.xml]: Cannot resolve reference to bean 'ehcacheManager' while setting bean property 'cacheManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ehcacheManager' defined in file [/opt/JavaWork/518CMS/518CMS/out/artifacts/518CMS_war_exploded/WEB-INF/classes/com/hangar/cms/config/springHibernate.xml]: Invocation of init method failed; nested exception is net.sf.ehcache.CacheException: Another CacheManager with same name 'sysCache1' already exists in the same VM. Please provide unique names for each CacheManager in the config or do one of following:
+1. Use one of the CacheManager.create() static factory methods to reuse same CacheManager with same name or create one if necessary
+2. Shutdown the earlier cacheManager before creating new one with same name.
+
+
+
+```
+
+主要报错:
+
+```
+1. Use one of the CacheManager.create() static factory methods to reuse same CacheManager with same name or create one if necessary
+2. Shutdown the earlier cacheManager before creating new one with same name.
+
+```
+
+是hibernate 和ehcache 整合出错,:
+
+```xml
+	 <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
+	    <property name="configLocation" value="classpath:ehcache.xml"/>
+         <property name="shared" value="true" />
+	</bean> 
+```
+
+主要添加:
+
+```xml
+<property name="shared" value="true" />
+```
+
+后正常运行.

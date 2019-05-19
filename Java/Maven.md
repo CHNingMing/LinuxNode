@@ -56,8 +56,124 @@
 # Maven安装本地jar
 
 ```
-mvn install:install-file -Dfile=jar包文件 -DgroupId=组名称 -DartifactId=依赖名称 -Dversion=版本名称 -Dpackaging=jar
+mvn install:install-file -Dfile=1包文件 -DgroupId=组名称 -DartifactId=依赖名称 -Dversion=版本名称 -Dpackaging=jar
 ```
+
+# Maven导出jar
+
+## 不依赖jar项目:
+
+pom.xml
+
+```xml
+<project>
+    <!-- pom 主体 -->
+    <build>
+        <plugins>
+            <!-- 编译环境 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+  				<version>3.1</version>
+                <configuration>
+                    <target>1.7</target>
+                    <source>1.7</source>
+                    <!-- 编码格式 -->
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- 生成jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                             <!-- 类入口路径,保证类中有main函数 -->
+                            <mainClass>com.main.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+执行:
+
+​	mvn clean
+
+​	mvn package
+
+## 依赖jar项目
+
+```xml
+<build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <target>1.7</target>
+                        <source>1.7</source>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <!-- 执行jar内指定jar目录 -->
+                                <addClasspath>true</addClasspath>
+                                <!-- 表示执行jar所有依赖取当前目录lib文件夹下找 -->
+                                <classpathPrefix>lib/</classpathPrefix>
+                                <!-- 入口类 -->
+                                <mainClass>com.main.Main</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+                 <!-- 把maven依赖转成jar输出到指定目录插件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                             <!-- id名称任意 -->
+                            <id>copy-dep</id>
+                             <!-- 以package/install执行时触发 -->
+                            <phase>package</phase>
+                            <goals>
+                                <!-- 插件命令  -->
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                               <!-- 插件目录  --> 
+                               <!-- ${project.build.directory}可通过Ctrl查看  --> <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+            </plugins>
+    </build>
+```
+
+
+
+
+
+
+
+
+
+
 
 # Maven跳过测试
 
@@ -117,6 +233,78 @@ line 334
 ,
 column 6
 ```
+
+# maven 标签
+
+## plugins 和 pluginManager 区别：
+
+plugins下插件表示使用插件。
+
+pluginManager下表示声明插件。
+
+​	主要用在两个项目相互继承的情况下。
+
+​	父类pluginManager声明的 插件，可以在子类中直接引用。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# maven 命令
+
+## mvn dependency:tree
+
+查看当前maven项目依赖树
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
