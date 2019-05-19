@@ -1062,8 +1062,42 @@ df
 ## 查看当前目录文件容量
 
 ```shell
-du -h
+du -h [指定文件/]
 ```
+
+## 命令结果屏幕显示不全
+
+键盘操作:
+
+Shift + PageUp
+
+Shift + PageDown
+
+### more命令
+
+例如:
+
+```shell
+netstat -n | more
+```
+
+| more  部分使用管道配合 more 实现翻页
+
+### Less命令
+
+例如:
+
+```
+netstat -n | less
+```
+
+| less 通过:
+
+​	 Enter 逐行显示
+
+​	PageDown 逐页显示
+
+​	q	结束显示
 
 
 
