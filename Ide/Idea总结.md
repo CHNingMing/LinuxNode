@@ -64,13 +64,15 @@ Ctrl+O				查看当前文件方法
 
 Ctrl+Shift+F 全局搜索文本
 
-Ctrl+F	局部搜索
+Ctrl+F		局部搜索
 
 Ctrl+Shift+R	全局搜索文本，替换
 
-Ctrl+R	局部替换
+Ctrl+R		局部替换
 
 Ctrl+N		全局搜索文件
+
+Ctrl+Alt+B	 通过接口查找实现类
 
 #### 编辑器操作
 
@@ -80,11 +82,15 @@ Ctrl+Y	删除一行
 
 折叠所有\展开所有标签：Ctrl+Shift+-、Ctrl+Shift+=
 
-
-
 #### Debug
 
 Alt+F8	运行选中的代码/动态执行代码
+
+Ctrl+Shift+F8	查看所有断点
+
+Ctrl+F8 			设置断点
+
+Shift + F8 		跳出函数 
 
 # 问题总结
 

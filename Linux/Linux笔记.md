@@ -1,3 +1,5 @@
+
+
 # 待整理
 
 #### Chrome更换主题命令
@@ -463,6 +465,16 @@ make 得到:libfcitxplatforminputcontextplugin.so
 appimagetool
 ```
 
+## DbVisualizer插入中文乱码
+
+右键连接项 - 编辑连接 - propertis选项卡 - 选择右侧  Driver Properties 列出连接参数列表:
+
+characterEncoding 设置 utf8
+
+generateSimpleParameterMetadata 设置成 true
+
+
+
 
 
 # 数据库部分
@@ -730,7 +742,7 @@ ThisCrackLicenseId-{
 “licenseId”:”ThisCrackLicenseId”, 
 “licenseeName”:”idea”, 
 “assigneeName”:”“, 
-“assigneeEmail”:”邮箱地址”, 
+“assigneeEmail”:”GengMIngYan@Yeah.net”, 
 “licenseRestriction”:”For This Crack, Only Test! Please support genuine!!!”, 
 “checkConcurrentUse”:false, 
 “products”:[ 

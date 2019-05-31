@@ -205,3 +205,17 @@ chown -R mysql /var/lib/mysql
 
 
 
+# 问题
+
+## TinyINT 长度为1 时,值只显示true/false
+
+在连接字符串添加参数:
+
+```&amp;tinyInt1isBit=false
+&tinyInt1isBit=false
+```
+
+​	
+
+
+

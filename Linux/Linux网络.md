@@ -90,7 +90,7 @@ pptpd : VPN搭建工具
 配置163源 顺利apt-get 安装.
 ```
 
-## 1.编辑pptpd.conf,配置VPN
+## 1.编辑/etc/pptpd.conf,配置VPN
 
 安装完成后,配置连接到这个VPN的ip:
 
