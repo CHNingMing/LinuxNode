@@ -25,7 +25,8 @@ Spring 约束
 	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
 	<!-- 插件部分结束 -->
 xsi:schemaLocation="
-    http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
         http://www.springframework.org/schema/aop
