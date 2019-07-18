@@ -101,13 +101,13 @@ pptpd : VPN搭建工具
 编辑pptpd.conf,最后添加,pptpd.conf中已注释localip/remoteip:
 
 ```
-localip 192.168.1.108
-remoteip 101.43.56.102
+localip 192.168.1.1
+remoteip 192.168.1.100-200
 ```
 
-localip: 本机IP地址				在局域网中的地址
+localip: 网关
 
-remoteip : 外网IP地址			## 总感觉这是客户端连接到这个VPN的IP.
+remoteip : 客户端IP必须在这个设定的范围内      
 
 ## 2.配置用户信息
 
@@ -115,10 +115,23 @@ remoteip : 外网IP地址			## 总感觉这是客户端连接到这个VPN的IP.
 
 ```
 # client        server  secret                  IP addresses
-	ming		* 		123456		*
+	ming		* 		123456		192.168.1.101
+	yan			* 		123456		192.168.1.102
 ```
 
 用户名（tab） 主机名（tab） 密码（tab） 分配到的ip地址(个人理解:连入客户分配到所在局域网下IP地址,* 自动分配)
+
+ip地址最好不要用*，写具体的服务器中没有用到的ip.
+
+设置 * 可能导致链接后，ping不同内网IP
+
+手机端链接VPN：
+
+​	打开PPP加密
+
+​	打开高级选项，DNS服务器填写：8.8.8.8
+
+​	可正常访问。
 
 ## 3.重启pptpds
 
@@ -126,9 +139,9 @@ remoteip : 外网IP地址			## 总感觉这是客户端连接到这个VPN的IP.
 
 ## 4.修改/etc/sysctl.conf
 
-去掉“net.ipv4.ip_forward=1”注释
+去掉“net.ipv4.ip_forward=1”注释			#####中I重要，如果客户端之间不通，可以检查这个设置。ip_forward=1 为 0 时可能出现客户端之间不通问题
 
-修改后指定命令:
+修改后使修改配置生效:
 
 ```
 sysctl -p
@@ -237,6 +250,18 @@ KexAlgorithms diffie-hellman-group1-sha1
 ```
 
 
+
+连接ssh出现：
+
+```
+Unable to negotiate with xxx.xxx.xxx.xxx port 22: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1  
+```
+
+是客户端原因，客户端在链接时添加参数：
+
+```
+ssh -oHostKeyAlgorithms=+ssh-dss -oKexAlgorithms=+diffie-hellman-group1-sha1 xxx.xxx.xxx.xxx/域名  
+```
 
 
 
