@@ -962,6 +962,14 @@ npm运行必须保证 /usr/bin/下有node,也就是通过命令行可以直接�
 fcitx -r
 ```
 
+## 搜狗输入法
+
+sogou-qimpanel-watchdog执行报错:Gtk-WARNING **: 无法在模块路径中找到主题引擎：“pixmap”
+
+安装:gtk2-engines-pixbu
+
+
+
 
 
 
