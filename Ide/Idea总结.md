@@ -135,6 +135,36 @@ public class ${NAME} {
 }
 ```
 
+### idea总是占用100%
+
+有可能是代码检查的原因,把idea报警级别全去掉试试.右下角的小医生图标.
+
+去掉没必要的插件,只剩下常用的插件.
+
+基本插件:
+
+```
+必须,tomcat需要用的插件:
+Tomcat and TomEE Inegration
+```
+
+
+
+```
+CSS Support		Css语法支持
+Database Tools and SQL 	SQL语法支持
+l18n for JAVA	
+Java EE; EJB,JPA,Servlet
+
+Java Servelt Pages (JSP)	检查JSP语法
+
+
+```
+
+
+
+
+
 # 调试
 
 循环中添加条件，满足条件断点调试。

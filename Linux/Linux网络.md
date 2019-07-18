@@ -74,9 +74,9 @@ pptpsetup --create vpnname --server xx.xxx.xxx.xxx --username xxx --password xxx
 
 创建后,后期可用pon / poff 开关vpn
 
+创建账号后,可以在/etc/ppp/peers下查看.创建名称就是文件名
 
-
-
+# PPTP tcp 1723
 
 # 搭建VPN服务器:
 
@@ -141,7 +141,7 @@ iptables -t nat -A POSTROUTING -s 192.168.2.0/16 -o eth0 -j MASQUERADE  //是ifc
 iptables-save > /etc/iptables.pptp
 ```
 
-192.168.2.0/16   :   通过 ip addr / ifconfig 得到的ip
+192.168.2.0/16   :   通过 ip addr / ifconfig 得到的ip			必须和pptpd.conf中的localip对应
 
 eth0	: 	连接本地局域网 网卡名称
 
