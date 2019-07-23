@@ -962,6 +962,14 @@ npm运行必须保证 /usr/bin/下有node,也就是通过命令行可以直接�
 fcitx -r
 ```
 
+## 搜狗输入法
+
+sogou-qimpanel-watchdog执行报错:Gtk-WARNING **: 无法在模块路径中找到主题引擎：“pixmap”
+
+安装:gtk2-engines-pixbu
+
+
+
 
 
 
@@ -1334,9 +1342,17 @@ ping 出现：network is unreachable
  如果没设置，其他的也不会生效。
 ```
 
+## 浏览器问题
 
+### 软件打开默认浏览器执行命令:
 
+#### chrome
 
+```
+google-chrome
+```
+
+软件打开没反应,别忘去终端中测试命令报错没
 
 
 
