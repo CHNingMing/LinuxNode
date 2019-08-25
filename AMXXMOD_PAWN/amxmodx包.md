@@ -10,7 +10,6 @@
 
 ```
 new currweap = get_user_weapon(id)
-
 ```
 
 
@@ -30,7 +29,7 @@ get_user_weapons(id,currweaps,0)
 
 
 
-# register_clcmd
+## register_clcmd
 
 监听CS客户端命令方法。执行指定命令后，调用回调。
 
@@ -52,7 +51,22 @@ new playermoney = cs_get_user_money(id)
 
 
 
+## register_even
 
+监听指定事件
+
+### CurWeapon
+
+切换武器时触发
+
+```c
+
+register_even("CurWeapon"，“callbackFunc”,"be","1=1")
+public callbackFunc(){
+    //....
+}
+
+```
 
 
 

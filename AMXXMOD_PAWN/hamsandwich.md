@@ -1,4 +1,4 @@
-# 监听各种事件包
+# 包
 
 #include <hamsandwich>
 
@@ -87,6 +87,58 @@ weaponEntity:武器实体，切记！不是玩家ID
 "weapon_elite", "weapon_fiveseven", "weapon_ump45", "weapon_sg550", "weapon_galil", "weapon_famas", "weapon_usp", "weapon_glock18", "weapon_awp", "weapon_mp5navy", "weapon_m249",
 "weapon_m3", "weapon_m4a1", "weapon_tmp", "weapon_g3sg1", "weapon_flashbang", "weapon_deagle", "weapon_sg552", "weapon_ak47", "weapon_knife","weapon_p90" }
 
+### Ham_TraceAttack
+
+指定武器对目标造成伤害时触发。
+
+```
+
+RegisterHam(Ham_TraceAttack,"player","fw_TraceAttack")
+
+```
+
+### Ham_Item_PostFrame
+
+切换到指定武器后触发
+
+weapon_galil  武器名称
+
+```
+
+RegisterHam(Ham_Item_PostFrame,"weapon_galil","hamScopePre",0)
+
+```
+
+### Ham_Item_PreFrame
+
+切换到指定武器前触发
+
+weapon_galil   武器名称
+
+```
+
+RegisterHam(Ham_Item_PreFrame,"weapon_galil","hamGalilUsagePre",1)
+
+```
+
+### Ham_Item_PreFrame/Ham_Item_PostFrame没有测试出具体就别...感觉触发时机都一样。。!
+
+### Ham_Weapon_Reload
+
+装弹时调用
+
+```
+
+RegisterHam(Ham_Weapon_Reload,"weapon_galil","hamReloadPre",0)
+
+```
+
+
+
+
+
+## register_forward
+
 ### FM_PlayerPreThink
 
 重点！！！
@@ -99,6 +151,10 @@ public think(id){
 	
 }
 ```
+
+### 
+
+
 
 
 
@@ -113,6 +169,14 @@ ExecuteHamB(Ham_CS_RoundRespawn, id)
 ```
 
 Ham_CS_RoundRespawn,玩家死亡时，复活事件。手动触发复活事件让玩家复活
+
+
+
+
+
+
+
+
 
 
 
