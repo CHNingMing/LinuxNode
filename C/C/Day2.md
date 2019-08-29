@@ -99,6 +99,8 @@ char * name = "";
 
 c语言没有字符串数据类型，通过char数组代替
 
+### Print
+
 #### 占位符限定字符串个数:
 
 %[num]s
@@ -116,6 +118,23 @@ C89下for报:
 ```c
 ‘for’ loop initial declarations are only allowed in C99 or C11 mode
 ```
+
+#### 打印变量地址符:%x
+
+```c
+int num = 9;
+printf("%x",&num);
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
