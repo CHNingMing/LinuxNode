@@ -1,6 +1,6 @@
 # Sql Server 
 
-## 修改列明
+## 修改列名
 
 execute sp_rename 'T_CountHitsNum.hits_data','hits_date'
 

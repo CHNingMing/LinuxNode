@@ -1,3 +1,27 @@
+# Linux Idea Git
+
+```
+LANG=zh_CN.utf8
+LANGUAGE=zh_CN:zh
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=zh_CN.UTF-8
+```
+
+视界项目可以正常提交
+
+
+
 项目相关
 
 ## 项目相关
@@ -39,6 +63,14 @@ Output root		是部署项目后输出文件
 ## 插件
 
 linux 插件目录 ~/.IntelliJIdea2018.2/config/plugin
+
+### JREbel
+
+http://github.com/ilanyu/ReverseProxy/releases/tag/v1.4   
+
+本机启动一个代理,激活时服务器输入http://localhost:8888{随机生成一个UUID}  /   http://127.0.0.1:8888/{随机生成一个UUID}
+
+启动脱机模式
 
 ### 快捷键
 
