@@ -1077,8 +1077,6 @@ whereis 命令名称
 df 
 ```
 
-
-
 ## 查看当前目录文件容量
 
 ```shell
@@ -1118,6 +1116,42 @@ netstat -n | less
 ​	PageDown 逐页显示
 
 ​	q	结束显示
+
+
+
+## Linux 申请Swap空间:
+
+dd 命令创建Swap文件.
+
+```shell
+dd if=/dev/zeero of=/var/swapfilename bs=1024 count=1000000
+```
+
+/var/swapfilename : swap文件目录
+
+1000000 : 1G
+
+mkswap 格式化swap文件
+
+```shell
+mkswap /var/swapfilename
+```
+
+加载swap文件
+
+### swapon
+
+```shell
+swapon /var/swapfilename
+```
+
+### swapoff
+
+```shell
+swapoff /var/swapfilename
+```
+
+
 
 
 
