@@ -50,11 +50,13 @@ public void saveUserInfo(String username,String password){
 
 
 
+## WebView 加载本地html
 
+html存放在assets文件夹下.
 
+loadUrl路径:file:////android_asset/*.html
 
-
-
+本地html引用js,css时,取相对路径引用.
 
 
 

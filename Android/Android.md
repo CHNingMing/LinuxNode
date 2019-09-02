@@ -53,6 +53,16 @@ layouo在 res/layout下,R.layout.*.xml,回去res/layout下查找xml视图文件
 
 ## 整体结构:
 
+### android两种文件类型大类:
+
+#### res
+
+存放可以编译的资源文件
+
+#### asstes
+
+存放原始资源文件,各种类型文件,android编译时不会编译它.
+
 ## res
 
 res文件都属于可编译文件,最后调用时可以使用R.*获取
@@ -81,7 +91,7 @@ values			字符串、颜色、样式
 
 配置文件,默认android配置文件会取这个目录下读取
 
-
+一般创建在main目录下
 
 
 
