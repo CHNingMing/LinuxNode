@@ -852,7 +852,7 @@ output path和Test output path都选择到刚才创建的classes路径
 	WPS
 		打开后缺失文件解决：https://pan.baidu.com/s/1eS6xIzo
 	
-	邮箱,如果没有合适的使用  thunderbird,还是他好使虽然统计很大
+	邮箱,如果没有合适的使用  thunderbird,还是他好使虽然容量很大
 	
 	XMind
 	
@@ -871,6 +871,8 @@ output path和Test output path都选择到刚才创建的classes路径
 	Redshift		眼睛保护
 	
 	Evince			PDF阅读器
+	
+	Flameshot		截图工具        设置截图命令 flameshot gui
 
 开发:
 
@@ -1124,7 +1126,7 @@ netstat -n | less
 dd 命令创建Swap文件.
 
 ```shell
-dd if=/dev/zeero of=/var/swapfilename bs=1024 count=1000000
+dd if=/dev/zero of=/var/swapfilename bs=1024 count=1000000
 ```
 
 /var/swapfilename : swap文件目录
@@ -1273,14 +1275,6 @@ find log -mtime +7 -name "*.log" -ok cat {} \;
 ## 查看Linux发行版本
 
 lsb_release -a  比较详细
-
-
-
-
-
-
-
-
 
 
 

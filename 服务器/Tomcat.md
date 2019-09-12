@@ -12,7 +12,7 @@
 
 追后一行追加:
 
-source 刷新
+source /etc/profile
 
 或者
 
@@ -59,6 +59,8 @@ appBase： 项目所在目录
 unpackWARs： 是否解压war包
 
 autoDeploy： 表示把新的WEB项目放到appBase指定的目录时，自动载入项目
+
+reloadable:  表示这个Host开启热部署
 
 #### Context
 
