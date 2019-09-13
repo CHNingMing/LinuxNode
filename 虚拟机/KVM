@@ -1,0 +1,10 @@
+
+VBox最好的替代
+通过xml文件运行。
+
+debian仓库没有 libvirt-bin  ,需要手动安装：https://packages.debian.org/jessie/amd64/libvirt-bin/download,依赖可以在仓库中安装，自动修复成功执行。已安装清华源。
+主要是virsh包含在libvirt-bin中。
+
+
+
+
