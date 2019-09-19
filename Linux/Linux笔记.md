@@ -886,11 +886,11 @@ output path和Test output path都选择到刚才创建的classes路径
 	
 	Lantern
 	
-	RepidSVN/ 更好软件svn-workkbench
+	RepidSVN (又用回这个...) / 更好软件svn-workkbench   
 	
 		Meld	文件比较
 	
-	MySql WorkBench	被替代 DbVisualizer 9.8版本可以破解专业版
+	MySql WorkBench	被替代 DbVisualizer 9.8版本可以破解专业版  DataGrip替代
 	
 	Postman
 	
