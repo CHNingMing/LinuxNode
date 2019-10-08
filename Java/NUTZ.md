@@ -65,3 +65,43 @@ org.nutz.dao.Cnd;
 
 主要用来创建条件(Condition)
 **Condition** Cnd.where("字段","运算符","值")[.and().or()];
+
+
+
+# 注解
+
+## 主键注解：
+
+@PK多个复杂主键时试用，标记类中
+
+```java
+@PK({"date","type"})
+class A{
+    Date date;
+    Integer type;
+}
+```
+
+@Name字符串主键时试用标记字段中
+
+@Id 数字类型主键中试用，标记字段中
+
+```java
+class A{
+    @Name
+    Date date;
+    @Id
+    Integer type;
+}
+```
+
+
+
+
+
+
+
+# 其他注意：
+
+不要使用内部类当实体,不要使用内部类当实体,不要使用内部类当实体....
+

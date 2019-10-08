@@ -59,7 +59,16 @@ gtk2-engines-pixbuf(临时测试主题可以使用)
 	bg_color					窗体内背景基础背景
 	selected_bg_color			选择文本、文件背景
 	fg_color					通知栏菜单字体颜色
+gtk2.0:
+	gtkrc						定义同意风格颜色变量
+	panel.rc					通知栏相关属性
 
+常用变量标记
+	    NORMAL：鼠标没有覆盖，点击的状态
+        PRELIGHT：移动到组件上
+        ACTIVE：鼠标按下组件
+        INSENSITIVE：不能被激活，或点击的状态
+        SELECTED:被选对象可以带好多属性
 
 
 
@@ -107,7 +116,34 @@ shade：窗口隐藏按钮
 打开:/usr/share/lightdm/lightdm-gtk-greeter.conf.d/01_debian.conf
 找到background=背景图片路径
 ```
+# GRUB主题
+
+## 安装GRUB主题
+
+主题放在/boot/grub/theme/xxthem
+
+编辑/etc/default/grub文件追加：
+
+```
+GRUB_THEME="/xxxtheme/theme.txt"
+```
+
+更新grub文件(efi启动):
+
+```shell
+grub-mkconfig -o /boot/efi/EFI/debian/grub.cfg
+```
+
+更新grub文件(传统启动):
+
+```shell
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+
+
 ### Sublime 输入法问题
+
 	https://github.com/lyfeyaj/sublime-text-imfix.git 下载
 解压，把lib下libsublime-imfix.so复制到sublime 目录
 在进入src下编辑subl,编辑libsublime-imfix.so路径和sublime路径，运行这个subl启动sublime解决输入法问题。
@@ -779,9 +815,9 @@ ThisCrackLicenseId-{
 {“code”:”PC”,”paidUpTo”:”2099-12-31”} 
 ```
 
+# 2019-10-7
 
-
-
+https://zhile.io/2018/08/25/jetbrains-license-server-crack.html这个网站去破解
 
 
 
@@ -855,6 +891,8 @@ output path和Test output path都选择到刚才创建的classes路径
 	邮箱,如果没有合适的使用  thunderbird,还是他好使虽然容量很大
 	
 	XMind
+	
+	earlyoom    避免卡死
 	
 	为知笔记
 	
