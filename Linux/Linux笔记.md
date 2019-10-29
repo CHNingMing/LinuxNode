@@ -531,6 +531,24 @@ generateSimpleParameterMetadata 设置成 true
 	
 	会发现配置文件又自动生成了,把备份的userdef.reg替换过去
 
+###  链接时出现:Authentication plugin 'caching_sha2_password' cannot be loaded:
+
+因为高版本密码加密策略问题,出现的错误.
+
+mysql -u root -p 链接:
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '203358' PASSWORD EXPIRE NEVER;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '203358';
+FLUSH PRIVILEGES; 
+```
+
+203358:密码
+
+
+
+
+
 ## workbean升级后不能降级解决
 
 首先搜索libgdal20,把libgdal20降级 ,在正常强制版本安装workbench就可以了  
@@ -911,6 +929,7 @@ output path和Test output path都选择到刚才创建的classes路径
 	Evince			PDF阅读器
 	
 	Flameshot		截图工具        设置截图命令 flameshot gui
+	ncdu			磁盘容量分析软件
 
 开发:
 
