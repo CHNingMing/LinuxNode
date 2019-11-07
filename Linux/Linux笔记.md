@@ -881,9 +881,17 @@ output path和Test output path都选择到刚才创建的classes路径
 
 	点击+号,选择Web Application: Expload  from Models   -- 选择项目(这一步是让运行是的tomcat加载到这的lib 文件,这的lib是通过之前选择的)
 
+## IDEA插件
 
+### JRebel
 
+SpingBoot热部署插件,热部署插件不能更新静态变量
 
+本地破解,下载http://github.com/ilanyu/ReverseProxy/releases/tag/v1.4 对应客户端版本,搭建激活服务,打开IDEA设置,Jrebel选项,开始激活.
+
+激活服务链接实例:http://127.0.0.1:8888/bb25c9bf-7695-48d6-b1a0-baf893ca7634
+
+UUID不能重复使用,每次重复激活时记得修改UUID
 
 
 
@@ -1347,7 +1355,9 @@ rpm2cpio xx.rpm | cpio -idmv
 
 ###  tar 压缩
 
-tar -cvf *.tar /xxxx目录
+tar -cvf *.tar /xxxx目录			普通压缩
+
+tar -czf *.tar.gz /xxx目录          强度较高,不能记录文件时间
 
 ## putty快捷连接ssh
 
