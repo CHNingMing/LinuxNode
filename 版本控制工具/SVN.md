@@ -21,3 +21,34 @@ document:项目文档管理
 
 linux SVN管理软件:RapidSVN
 
+
+
+
+
+
+
+### linux SVN项目中文件包含中文文件名，检出时报错
+
+终端中检出:
+locale查看当前编码格式
+
+
+
+idea中检出：
+
+在idea中调出控制台，执行locale查看编码格式。为了和终端环境统计，最好是在idea.sh中刷新profile
+
+```shell
+source /etc/profile
+```
+
+
+
+
+
+
+
+
+
+
+

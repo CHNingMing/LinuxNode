@@ -118,16 +118,6 @@ select name,group_concat(distinct id order by id separator '_') from t_a group b
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## debian 安装mysql:
 
 打开mysql官网，选择apt-repository,下载deb包，这个包安装需要一些命令，打开debian源基础上添加一个163源，即可安装那两个命令（查看系统版本命令）。
@@ -142,6 +132,76 @@ apt-get install mysql-server
 ```
 
 期间输入密码和选择mysql密码强度，选择弱。
+
+## 存储过程
+
+### 基本语法
+
+```sql
+create [definer=用户@IP] procedure <名称> ( [ IN param <type>] [OUT param <type>] [INOUT param <type> ])
+begin
+-- 存储过程体
+
+end
+```
+
+IN:输入参数
+
+OUT:输出参数
+
+INOUT:即是输入参数也是输出参数
+
+OUT和INOUT声明的变量在存储过程体中**必须赋值**
+
+
+
+
+
+
+
+## 函数
+
+
+
+
+
+## 游标
+
+1. 创建跳出游标条件变量
+
+2. 声明游标
+3. 设置游标跳出条件(类似监听)
+4. 打开游标
+5. 循环游标
+
+```sql
+create  definer = root@localhost function getLastInsertIdFun() returns varchar(100)
+begin
+    declare result varchar(300);
+    declare t_str varchar(30);-- 临时存储游标循环变量
+    declare done boolean;
+    declare cursorA CURSOR FOR select o_no from rable_1;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    open cursorA;
+    read_loop: LOOP -- 创建一个read_loop名的循环
+        -- 取一个数据到t_str
+        fetch cursorA into t_str;
+        if done then
+            leave read_loop; -- 跳出循环，break;
+            ITERATE read_loop; -- 跳出本次循环,continue;
+        end if;
+    end read_loop;
+    close cursorA
+    return result;
+ end
+
+```
+
+
+
+
+
+
 
 
 

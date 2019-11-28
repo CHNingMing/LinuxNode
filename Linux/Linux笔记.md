@@ -59,7 +59,16 @@ gtk2-engines-pixbuf(临时测试主题可以使用)
 	bg_color					窗体内背景基础背景
 	selected_bg_color			选择文本、文件背景
 	fg_color					通知栏菜单字体颜色
+gtk2.0:
+	gtkrc						定义同意风格颜色变量
+	panel.rc					通知栏相关属性
 
+常用变量标记
+	    NORMAL：鼠标没有覆盖，点击的状态
+        PRELIGHT：移动到组件上
+        ACTIVE：鼠标按下组件
+        INSENSITIVE：不能被激活，或点击的状态
+        SELECTED:被选对象可以带好多属性
 
 
 
@@ -107,7 +116,34 @@ shade：窗口隐藏按钮
 打开:/usr/share/lightdm/lightdm-gtk-greeter.conf.d/01_debian.conf
 找到background=背景图片路径
 ```
+# GRUB主题
+
+## 安装GRUB主题
+
+主题放在/boot/grub/theme/xxthem
+
+编辑/etc/default/grub文件追加：
+
+```
+GRUB_THEME="/xxxtheme/theme.txt"
+```
+
+更新grub文件(efi启动):
+
+```shell
+grub-mkconfig -o /boot/efi/EFI/debian/grub.cfg
+```
+
+更新grub文件(传统启动):
+
+```shell
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+
+
 ### Sublime 输入法问题
+
 	https://github.com/lyfeyaj/sublime-text-imfix.git 下载
 解压，把lib下libsublime-imfix.so复制到sublime 目录
 在进入src下编辑subl,编辑libsublime-imfix.so路径和sublime路径，运行这个subl启动sublime解决输入法问题。
@@ -495,6 +531,24 @@ generateSimpleParameterMetadata 设置成 true
 	
 	会发现配置文件又自动生成了,把备份的userdef.reg替换过去
 
+###  链接时出现:Authentication plugin 'caching_sha2_password' cannot be loaded:
+
+因为高版本密码加密策略问题,出现的错误.
+
+mysql -u root -p 链接:
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '203358' PASSWORD EXPIRE NEVER;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '203358';
+FLUSH PRIVILEGES; 
+```
+
+203358:密码
+
+
+
+
+
 ## workbean升级后不能降级解决
 
 首先搜索libgdal20,把libgdal20降级 ,在正常强制版本安装workbench就可以了  
@@ -779,9 +833,9 @@ ThisCrackLicenseId-{
 {“code”:”PC”,”paidUpTo”:”2099-12-31”} 
 ```
 
+# 2019-10-7
 
-
-
+https://zhile.io/2018/08/25/jetbrains-license-server-crack.html这个网站去破解
 
 
 
@@ -827,9 +881,17 @@ output path和Test output path都选择到刚才创建的classes路径
 
 	点击+号,选择Web Application: Expload  from Models   -- 选择项目(这一步是让运行是的tomcat加载到这的lib 文件,这的lib是通过之前选择的)
 
+## IDEA插件
 
+### JRebel
 
+SpingBoot热部署插件,热部署插件不能更新静态变量
 
+本地破解,下载http://github.com/ilanyu/ReverseProxy/releases/tag/v1.4 对应客户端版本,搭建激活服务,打开IDEA设置,Jrebel选项,开始激活.
+
+激活服务链接实例:http://127.0.0.1:8888/bb25c9bf-7695-48d6-b1a0-baf893ca7634
+
+UUID不能重复使用,每次重复激活时记得修改UUID
 
 
 
@@ -852,9 +914,11 @@ output path和Test output path都选择到刚才创建的classes路径
 	WPS
 		打开后缺失文件解决：https://pan.baidu.com/s/1eS6xIzo
 	
-	邮箱,如果没有合适的使用  thunderbird,还是他好使虽然统计很大
+	邮箱,如果没有合适的使用  thunderbird,还是他好使虽然容量很大
 	
 	XMind
+	
+	earlyoom    避免卡死
 	
 	为知笔记
 	
@@ -871,6 +935,9 @@ output path和Test output path都选择到刚才创建的classes路径
 	Redshift		眼睛保护
 	
 	Evince			PDF阅读器
+	
+	Flameshot		截图工具        设置截图命令 flameshot gui
+	ncdu			磁盘容量分析软件
 
 开发:
 
@@ -884,11 +951,11 @@ output path和Test output path都选择到刚才创建的classes路径
 	
 	Lantern
 	
-	RepidSVN/ 更好软件svn-workkbench
+	RepidSVN (又用回这个...) / 更好软件svn-workkbench   
 	
 		Meld	文件比较
 	
-	MySql WorkBench	被替代 DbVisualizer 9.8版本可以破解专业版
+	MySql WorkBench	被替代 DbVisualizer 9.8版本可以破解专业版  DataGrip替代
 	
 	Postman
 	
@@ -1124,7 +1191,7 @@ netstat -n | less
 dd 命令创建Swap文件.
 
 ```shell
-dd if=/dev/zeero of=/var/swapfilename bs=1024 count=1000000
+dd if=/dev/zero of=/var/swapfilename bs=1024 count=1000000
 ```
 
 /var/swapfilename : swap文件目录
@@ -1276,14 +1343,6 @@ lsb_release -a  比较详细
 
 
 
-
-
-
-
-
-
-
-
 # 常用命令工具:
 
 ## zip 压缩
@@ -1296,7 +1355,9 @@ rpm2cpio xx.rpm | cpio -idmv
 
 ###  tar 压缩
 
-tar -cvf *.tar /xxxx目录
+tar -cvf *.tar /xxxx目录			普通压缩
+
+tar -czf *.tar.gz /xxx目录          强度较高,不能记录文件时间
 
 ## putty快捷连接ssh
 

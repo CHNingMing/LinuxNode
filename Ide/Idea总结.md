@@ -114,6 +114,12 @@ Ctrl+Y	删除一行
 
 折叠所有\展开所有标签：Ctrl+Shift+-、Ctrl+Shift+=
 
+矩形多行选择文本：Ctrl+Alt+Shift
+
+多行选择：Alt+Shift    每次选中时按住Alt+Shift  多行选择
+
+打开/关闭矩形选择模式:Alt+Insert
+
 #### Debug
 
 Alt+F8	运行选中的代码/动态执行代码
