@@ -104,6 +104,28 @@ PORTS	: 	容器内端口映射宿主环境端口
 
 
 
+### 创建容器时提示名称重复
+
+```
+docker: Error response from daemon: Conflict. The container name "*"is already in use by container * ...
+```
+
+查看已创建的所有容器,获取到名称重复容器的ID:
+
+```
+docker ps -a
+```
+
+删除名称重复的容器:
+
+```
+docker rm 容器ID
+```
+
+
+
+
+
 ### 进入容器
 
 ```shell

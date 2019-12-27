@@ -485,6 +485,7 @@ libfcitx-qt5-dev
 make编译，得到platforminputcontext文件夹
 进入platforminputcontext，cmake .   得到makeFile 
 make 得到:libfcitxplatforminputcontextplugin.so
+{QT目录}/lib/Qt/plugins/platforminputcontexts目录下粘贴libfcitxplatforminputcontextplugin.so
 ```
 
 
@@ -901,7 +902,7 @@ UUID不能重复使用,每次重复激活时记得修改UUID
 
 	wifi
 	
-	Wine
+	Wine[playOnLinux管理Wine+winetricks安装windows Dll组件]
 	
 	Oracle VM VirtualBox
 	
@@ -1490,11 +1491,23 @@ service dbus start
 
 这句命令一直没执行成功
 
-
-
-
-
 每一步别忘了移除蓝牙耳机设备重新添加
+
+# 终端问题解决
+
+### 终端乱码 菱形解决
+
+是因为使用了中文编码，并且没有中文相关字体导致的(猜测)，所以重新设置成英文编码搞定。
+
+选择en_us.utf-8 utf-8,取消zh_开头编码
+
+```
+dpkg-reconfigure locales
+```
+
+左ok，右 取消
+
+选择en_us.utf-8 utf-8
 
 # Wine
 

@@ -8,6 +8,87 @@ VBox最好的替代
 debian仓库没有 libvirt-bin  ,需要手动安装：https://packages.debian.org/jessie/amd64/libvirt-bin/download,依赖可以在仓库中安装，自动修复成功执行。已安装清华源。
 主要是virsh包含在libvirt-bin中。
 
+# virsh
+
+管理KVM虚拟机命令
+
+## 创建虚拟机
+
+
+
+
+
+## xml启动虚拟机
+
+```
+virsh define *.xml
+virsh start my_kvm
+```
+
+my_kvm:xml中定义的虚拟机名称
+
+```
+sudo virsh net-start default
+sudo virsh net-autostart default
+```
+
+
+
+
+
+## 配置网络
+
+宿主机创建好默认网桥(virbr0)，默认网桥网关是192.168.122.1,保证网桥网卡启动正常
+
+配置虚拟网卡/etc/network/interface:
+
+```
+auto 网卡
+iface 网卡 inet dhcp       #自动获取IP
+```
+
+重启网卡，连接宿主机网桥，分配IP地址
+
+```
+/etc/init.d/networking restart
+```
+
+
+
+
+
+## list
+
+查看当前KVM虚拟机运行状态
+
+```
+virsh list
+```
+
+查看所有KVM虚拟机
+
+```
+virsh list --all
+```
+
+## start
+
+启动虚拟机
+
+```
+virsh start [创建的虚拟机名称]
+```
+
+
+
+
+
+
+
+
+
+
+
 ## 添加网卡
 
 ```shell
