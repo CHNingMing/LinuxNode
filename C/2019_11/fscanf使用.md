@@ -1,10 +1,10 @@
 ## fscanf
 
-按指定内容格式读取文件内容。
+主要按指定内容格式读取文件内容。也可以实现类似scanf函数效果.
 
 函数原型:int fscanf (FILE *file, const char formatStr, ...)
 
-file: 文件流，fopen获取
+file: 输入流(文件流)，fopen获取
 
 formatStr: 格式化字符串,...对应格式化字符串内容。
 
