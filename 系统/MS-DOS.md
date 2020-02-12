@@ -38,7 +38,39 @@ UltraISO  			 把系统打包，当时MS-DOS只支持1.44软盘，由于系统�
 
 
 
+## Turbo C
 
+进入Turboc目录，执行install安装。
+
+F10		切换代码/菜单选择。
+
+
+
+### MS-DOS C图形处理库使用
+
+库头文件：graphics.h
+
+使用图形工具前，需要初始化,初始化需要:
+
+BGIOBJ.EXE
+
+EGAVGA.BGI
+
+TLIB.EXE
+
+GRAPHICS.LIB | lib/GRAPHICS.LIB
+
+高版本的TC中带了这些文件，如果没在，需要从网上下载。
+
+初始化好后，在调initgraph之前调registerbgidriver(EGAVGA_driver);方法。
+
+
+
+### DOS设置环境变量
+
+设置DOS环境变量，每次设置会重置成新设置的路径！！！
+
+path [路径].
 
 
 
