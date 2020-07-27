@@ -281,6 +281,80 @@ save <间隔时间(秒)> <写入次数>
 
 
 
+# RedisTemplate
+
+spring 基于 Jedis封装的操作Redis工具
+
+## 导入pom:
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+
+## 配置配置文件:
+
+```yml
+spring:
+  redis:
+    database: 0	# 默认数据库
+    host: 37.29.43.35 
+    port: 6379 
+    password: 123456 
+    
+    lettuce: # 连接池相关配置
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1
+    timeout: 30000
+```
+
+## 坑:
+
+RedisTemplate 和 StringRedisTemplate 是有区别的，数据不通用！！
+
+有两种序列化方式：String的序列化;  JDK序列化策略
+
+StringRedisTemplate 用的是String的序列化
+
+RedisTemplate  用的是JDK序列化策略
+
+### 手动配置RedisTemplate序列化方式
+
+StringRedisTemplate 存储的数据RedisTemplate默认是读不到的，如果RedisTemplate想读到StringRedisTemplate 存储的数据，需手动配置RedisTemplate成String的序列化方式。
+
+```java
+RedisSerializer<String> stringRedisSerializer = new StringRedisSerializer();
+redisTemplate.setKeySerializer(stringRedisSerializer);
+redisTemplate.setValueSerializer(stringRedisSerializer);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
