@@ -30,7 +30,17 @@
 ./kafka-console-consumer.sh --bootstrap-server <kafka节点>:<端口> --from-begining --topic <主题>
 ```
 
+### 创建主题
 
+```
+kafka-topics.bat --create -zookeeper localhost:2182 --replication-factor 2 --partitions 3 --topic testMcdull222
+```
+
+--partitions: 分区数量
+
+-zookeeper: 制定zookeeper地址
+
+--topic: 指定topic名称
 
 
 
