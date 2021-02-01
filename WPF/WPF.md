@@ -449,7 +449,7 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 
 #### **Binding没有Source时没有向上递归找DataContext
 
-向上递归找DataContext是一个错觉，其实是父级设置了DataContext，子级没有设置时，父级会把DataContext传给子级，一路传下去,直到下一个子级
+向上递归找DataContext是一个错觉，其实是父级设置了DataContext，子级没有设置DataContext时，父级会把DataContext传给子级，一路传下去,直到下一个子级设置DataContext
 
 
 
@@ -474,11 +474,112 @@ xmlns:sys="clr-namespace:System;assembly=mscorlib"
 
 
 
+# 样式
+
+控制控件展示的一切东西..
+
+## 样式的几种定义形式
+
+### 创建样式
+
+```xaml
+<Window.Resources>
+    <!-- 定义样式手动引用 -->
+    <Style x:Key="style1">
+        <Setter Property="Label.FontSize" Value="10"></Setter>
+        <Setter Property="Button.FontSize" Value="90"></Setter>
+    </Style>
+</Window.Resources>
+```
+
+
+-  虽然从指定基类(Label、Button)调用的属性,但编译器会看成同一个属性。
+-  在TextBlock控件同样管用,编译器只会看最后指定的属性,Label和Button的FontSize都是一种类型
+-  所以应用在TextBlock时，发现TextBlock有FontSize属性,就会设置对应样式
+-  既然同一种属性类型，那相当于样式重复，样式重复后会以最后一次设置的样式为准，**也就是FontSize永远是90**
+
+### 创建指定目标样式
+
+```xaml
+<Window.Resources>
+    <Style TargetType="Button">
+        <Setter Property="Button.FontSize" Value="90"></Setter>
+    </Style>
+</Window.Resources>
+```
+
+这个样式会应用当前xaml文件里的所有Button控件
+
+**注意: Style标签中使用了TargetType,就不要再使用x:Key，否则TargetType标签作用消失**
+
+### 控件内样式(优先级最高)
+
+```xaml
+<Button>
+    <Button.Style>
+        <Style>
+            <Setter Property="Button.FontSize" Value="90"></Setter>
+        </Style>
+    </Button.Style>
+</Button>
+```
+
+## 样式事件
+
+通过样式可以批量绑定事件,在一些同时给多个控件，绑定一个处理函数时，比较有用
+
+### 样式事件定义
+
+```xaml
+<Style TargetType="Button">
+    <EventSetter Event="Button.MouseEnter" Handler="btn_Mouse"></EventSetter>
+</Style>
+```
+
+这样，在本页中，所有的Button都设置上了鼠标经过时事件
 
 
 
+## 样式继承
 
+定义全局通用样式时，可以把通用样式属性提出，单独声明，其他样式继承此通用样式
 
+```xaml
+<Style x:Key="CommonStyle">
+    
+</Style>
+
+<Style x:Key="ButtonStyle" BasedOn="{StaticResource CommonStyle}">
+    
+</Style>
+```
+
+## 触发器
+
+通过触发器监听控件的某一个属性值变化，来设置不同样式
+
+```xaml
+<Style x:Key="StyleName" >
+    <Style.Triggers>
+        <!-- 单个条件触发器 -->
+        <!-- 当控件字体大小等于10时，控件背景设置成红色 -->
+        <Trigger Property="Control.FontSize" Value="10">
+            <Setter Property="Control.Background" Value="red" />
+        </Trigger>
+        <!-- 多个条件触发器 -->
+        <!-- 当控件字体大小等于10并且内容文本等于A时，控件背景设置成黄色 -->
+        <MultiTrigger>
+            <MultiTrigger.Conditions>
+                <Condition Property="Control.FontSize" Value="10" />
+                <Condition Property="Control.Context" Value="A" />
+            </MultiTrigger.Conditions>
+            <MultiTrigger.Setters>
+                <Setter Property="Foreground" Value="Yellow" />
+            </MultiTrigger.Setters>
+        </MultiTrigger>
+    </Style.Triggers>
+</Style>
+```
 
 
 
